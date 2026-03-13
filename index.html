@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>MIRON — Stop de souffrir. Voici ton plan.</title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<title>MIRON — Comprends enfin ton SII. Un plan fait pour toi.</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
 <style>
 :root {
   --g1: #2ecc71;
@@ -15,200 +15,289 @@
   --muted: #4a6358;
   --light: #f0faf4;
   --white: #ffffff;
-  --border: rgba(46,204,113,0.2);
-  --grad: linear-gradient(135deg, #2ecc71 0%, #1abc9c 50%, #0e9e82 100%);
-  --grad-soft: linear-gradient(135deg, #e8faf2 0%, #d4f5e9 100%);
+  --border: rgba(26,188,156,0.18);
+  --grad: linear-gradient(135deg, #2ecc71 0%, #1abc9c 100%);
+  --grad-soft: linear-gradient(135deg, #eafaf2 0%, #d4f5e9 100%);
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 html{scroll-behavior:smooth;}
 body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
 
-/* STICKY */
-.sticky{position:fixed;bottom:0;left:0;right:0;z-index:999;padding:14px 20px calc(14px + env(safe-area-inset-bottom));background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);border-top:1px solid var(--border);display:flex;gap:12px;align-items:center;}
-.sticky-info{flex-shrink:0;line-height:1.2;}
-.sticky-old{font-size:11px;color:#bbb;text-decoration:line-through;}
-.sticky-new{font-family:'Nunito',sans-serif;font-size:22px;font-weight:700;color:var(--ink);}
-.sticky-btn{flex:1;background:var(--grad);color:var(--white);font-family:'Nunito',sans-serif;font-size:15px;font-weight:700;padding:16px 20px;border-radius:16px;text-decoration:none;text-align:center;box-shadow:0 4px 20px rgba(46,204,113,0.4);min-height:52px;display:flex;align-items:center;justify-content:center;transition:transform 0.15s;}
-.sticky-btn:active{transform:scale(0.97);}
+/* ─── STICKY ─── */
+.sticky{position:fixed;bottom:0;left:0;right:0;z-index:999;padding:12px 20px calc(12px + env(safe-area-inset-bottom));background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);border-top:1px solid var(--border);display:flex;gap:12px;align-items:center;}
+.sticky-price{flex-shrink:0;}
+.sticky-old{font-size:11px;color:#ccc;text-decoration:line-through;line-height:1;}
+.sticky-new{font-family:'Nunito',sans-serif;font-size:24px;font-weight:800;color:var(--ink);line-height:1.1;}
+.sticky-btn{flex:1;background:var(--grad);color:#fff;font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;padding:15px 20px;border-radius:14px;text-decoration:none;text-align:center;box-shadow:0 4px 20px rgba(26,188,156,0.4);display:flex;align-items:center;justify-content:center;transition:transform .15s;}
+.sticky-btn:active{transform:scale(.97);}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,0.06);}
-.logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:700;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.nav-pill{background:var(--grad-soft);border:1px solid var(--border);color:var(--g3);font-size:12px;font-weight:500;padding:7px 14px;border-radius:100px;}
+/* ─── NAV ─── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.94);backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,0.05);}
+.logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:900;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-0.5px;}
+.nav-cta{background:var(--grad);color:#fff;font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;padding:8px 18px;border-radius:100px;text-decoration:none;letter-spacing:.01em;}
 
-/* HERO */
-.hero{padding:90px 20px 40px;position:relative;overflow:hidden;}
-.hero-blob1{position:absolute;top:-60px;right:-80px;width:320px;height:320px;background:radial-gradient(circle,rgba(46,204,113,0.13) 0%,transparent 70%);border-radius:50%;pointer-events:none;}
-.hero-blob2{position:absolute;bottom:-40px;left:-60px;width:240px;height:240px;background:radial-gradient(circle,rgba(26,188,156,0.1) 0%,transparent 70%);border-radius:50%;pointer-events:none;}
+/* ─── HERO ─── */
+.hero{padding:88px 22px 52px;position:relative;overflow:hidden;background:linear-gradient(180deg,#f7fffe 0%,#fff 100%);}
+.hero-blob{position:absolute;top:-80px;right:-100px;width:380px;height:380px;background:radial-gradient(circle,rgba(46,204,113,.10) 0%,transparent 70%);border-radius:50%;pointer-events:none;}
 
-.hero-tag{display:inline-flex;align-items:center;gap:7px;background:var(--grad-soft);border:1px solid var(--border);color:var(--g3);font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;padding:7px 16px;border-radius:100px;margin-bottom:20px;animation:up 0.5s ease both;}
-.tag-dot{width:6px;height:6px;background:var(--g1);border-radius:50%;animation:pulse 2s infinite;}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(0.7);}}
+.hero-tag{display:inline-flex;align-items:center;gap:7px;background:#e8faf2;border:1px solid rgba(26,188,156,.25);color:var(--g3);font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:22px;animation:up .5s ease both;}
+.tag-dot{width:6px;height:6px;background:var(--g2);border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.45;transform:scale(.7);}}
 
-.hero h1{font-family:'Nunito',sans-serif;font-size:clamp(40px,11vw,60px);font-weight:700;line-height:1.03;color:var(--ink);margin-bottom:18px;animation:up 0.5s 0.07s ease both;}
+.hero h1{font-family:'Nunito',sans-serif;font-size:clamp(38px,10.5vw,58px);font-weight:900;line-height:1.04;color:var(--ink);margin-bottom:16px;animation:up .5s .07s ease both;letter-spacing:-1px;}
 .grad-text{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 
-.hero-sub{font-size:17px;font-weight:300;color:var(--muted);line-height:1.65;margin-bottom:26px;animation:up 0.5s 0.12s ease both;}
+.hero-sub{font-size:16px;font-weight:300;color:var(--muted);line-height:1.7;margin-bottom:28px;animation:up .5s .12s ease both;max-width:480px;}
 .hero-sub strong{color:var(--ink);font-weight:600;}
 
-.steps-strip{display:flex;flex-direction:column;gap:10px;margin-bottom:26px;animation:up 0.5s 0.17s ease both;}
-.step-row{display:flex;align-items:center;gap:14px;background:var(--light);border-radius:14px;padding:14px 16px;border:1px solid var(--border);}
-.step-num{width:28px;height:28px;background:var(--grad);color:white;border-radius:8px;font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.step-content strong{display:block;font-size:14px;font-weight:600;color:var(--ink);margin-bottom:1px;}
-.step-content span{font-size:12px;color:var(--muted);font-weight:300;}
-.step-icon{font-size:20px;flex-shrink:0;margin-left:auto;}
+.hero-cta{animation:up .5s .18s ease both;margin-bottom:16px;}
+.btn-big{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;background:var(--grad);color:#fff;font-family:'Nunito',sans-serif;font-size:17px;font-weight:800;padding:19px;border-radius:16px;text-decoration:none;box-shadow:0 8px 32px rgba(46,204,113,.45);min-height:58px;transition:transform .15s;}
+.btn-big:active{transform:scale(.98);}
 
-.hero-cta{animation:up 0.5s 0.22s ease both;}
-.btn-big{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:var(--grad);color:var(--white);font-family:'Nunito',sans-serif;font-size:17px;font-weight:700;padding:20px;border-radius:18px;text-decoration:none;box-shadow:0 8px 32px rgba(46,204,113,0.45);min-height:60px;margin-bottom:12px;transition:transform 0.15s;}
-.btn-big:active{transform:scale(0.98);}
-.hero-reassure{text-align:center;font-size:13px;color:var(--muted);font-weight:300;}
-.hero-reassure strong{color:var(--ink);font-weight:600;}
+.hero-micro{display:flex;align-items:center;gap:18px;flex-wrap:wrap;animation:up .5s .22s ease both;}
+.hero-micro-item{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--muted);font-weight:400;}
+.hero-micro-item svg{width:14px;height:14px;stroke:var(--g2);stroke-width:2.5;fill:none;flex-shrink:0;}
 
-/* MOCKUP */
-.mockup{margin:32px 20px 0;background:var(--ink);border-radius:24px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.2);}
-.mockup-top{background:linear-gradient(135deg,#1a3d2a,#0d2a1e);padding:18px 20px 14px;}
-.mockup-dots{display:flex;gap:6px;margin-bottom:14px;}
-.mdot{width:10px;height:10px;border-radius:50%;}
-.mockup-label{font-size:11px;color:rgba(255,255,255,0.3);font-weight:300;letter-spacing:1px;text-transform:uppercase;}
-.mockup-body{padding:20px;}
-.m-block{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:16px;margin-bottom:12px;}
-.m-block:last-child{margin-bottom:0;}
-.m-label{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--g1);margin-bottom:12px;}
-.m-chips{display:flex;gap:8px;flex-wrap:wrap;}
-.m-chip{font-size:12px;font-weight:500;padding:5px 12px;border-radius:100px;}
-.m-chip-green{background:rgba(46,204,113,0.15);border:1px solid rgba(46,204,113,0.25);color:var(--g1);}
-.m-chip-teal{background:rgba(26,188,156,0.15);border:1px solid rgba(26,188,156,0.25);color:#1abc9c;}
-.m-bar-row{display:flex;justify-content:space-between;font-size:12px;margin-bottom:8px;}
-.m-bar-row span{color:rgba(255,255,255,0.5);}
-.m-bar-row strong{color:var(--g1);font-weight:600;}
-.m-bar-track{height:6px;background:rgba(255,255,255,0.08);border-radius:100px;overflow:hidden;}
-.m-bar-fill{height:100%;width:45%;background:var(--grad);border-radius:100px;animation:grow 1.4s 0.5s ease both;}
-@keyframes grow{from{width:0;}to{width:45%;}}
-.m-action{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
-.m-action:last-child{margin-bottom:0;}
-.m-action-num{width:22px;height:22px;background:var(--grad);border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:'Nunito',sans-serif;font-size:11px;font-weight:700;color:white;flex-shrink:0;}
-.m-action span{font-size:13px;color:rgba(255,255,255,0.75);}
-
-/* PROOF BAND */
-.proof-band{background:var(--ink);padding:20px;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+/* ─── PROOF BAND ─── */
+.proof-band{background:var(--ink);padding:18px 22px;display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .proof-item{display:flex;align-items:center;gap:10px;}
-.proof-icon{width:36px;height:36px;background:rgba(46,204,113,0.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
-.proof-text strong{display:block;font-size:14px;font-weight:700;color:var(--white);font-family:'Nunito',sans-serif;line-height:1;margin-bottom:2px;}
-.proof-text span{font-size:11px;color:rgba(255,255,255,0.4);font-weight:300;}
+.proof-icon{width:34px;height:34px;background:rgba(46,204,113,.12);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
+.proof-text strong{display:block;font-size:13px;font-weight:700;color:#fff;font-family:'Nunito',sans-serif;line-height:1;margin-bottom:2px;}
+.proof-text span{font-size:10px;color:rgba(255,255,255,.35);font-weight:300;}
 
-/* SECTIONS */
-.sec{padding:60px 20px;}
+/* ─── SECTIONS génériques ─── */
+.sec{padding:56px 22px;}
 .sec-light{background:var(--light);}
-.eyebrow{display:block;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--g2);margin-bottom:12px;}
-.sec h2{font-family:'Nunito',sans-serif;font-size:clamp(26px,7vw,38px);font-weight:700;line-height:1.1;color:var(--ink);margin-bottom:10px;}
-.sec-sub{font-size:15px;color:var(--muted);font-weight:300;line-height:1.65;margin-bottom:28px;}
+.eyebrow{display:block;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--g2);margin-bottom:12px;}
+.sec h2,.section-h2{font-family:'Nunito',sans-serif;font-size:clamp(26px,7vw,36px);font-weight:800;line-height:1.1;color:var(--ink);margin-bottom:10px;letter-spacing:-0.5px;}
+.sec-sub{font-size:15px;color:var(--muted);font-weight:300;line-height:1.7;margin-bottom:28px;}
+em{font-style:normal;color:var(--g3);font-weight:600;}
 
-/* PAIN CARDS */
-.pain-list{display:flex;flex-direction:column;gap:12px;}
-.pain-card{border:1px solid rgba(0,0,0,0.07);border-radius:18px;padding:18px 16px;display:flex;align-items:flex-start;gap:14px;background:var(--white);}
-.pain-emoji{font-size:28px;flex-shrink:0;margin-top:2px;}
-.pain-card h3{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:3px;}
-.pain-card p{font-size:13px;color:var(--muted);line-height:1.5;font-weight:300;}
+/* ─── PAIN ─── */
+.pain-grid{display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
+.pain-card{border:1px solid rgba(0,0,0,.06);border-radius:16px;padding:16px 15px;display:flex;align-items:flex-start;gap:12px;background:#fff;transition:border-color .2s;}
+.pain-card:hover{border-color:var(--border);}
+.pain-emoji{font-size:24px;flex-shrink:0;margin-top:1px;}
+.pain-card h3{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:3px;line-height:1.35;}
+.pain-card p{font-size:13px;color:var(--muted);line-height:1.55;font-weight:300;}
+.pain-bridge{background:linear-gradient(135deg,#e8faf2,#d4f5e9);border:1px solid rgba(26,188,156,.25);border-radius:14px;padding:16px 18px;display:flex;align-items:center;gap:12px;}
+.pain-bridge-icon{font-size:22px;flex-shrink:0;}
+.pain-bridge p{font-size:14px;color:var(--ink2);line-height:1.55;font-weight:400;}
+.pain-bridge strong{color:var(--g3);font-weight:700;}
 
-/* TRANSITION */
-.trans-band{background:var(--grad);padding:36px 20px;text-align:center;position:relative;overflow:hidden;}
-.trans-band::before{content:'';position:absolute;top:-50%;left:-10%;width:200px;height:200px;background:rgba(255,255,255,0.1);border-radius:50%;}
-.trans-band::after{content:'';position:absolute;bottom:-30%;right:-5%;width:150px;height:150px;background:rgba(255,255,255,0.08);border-radius:50%;}
-.trans-band p{font-family:'Nunito',sans-serif;font-size:clamp(20px,6vw,28px);font-weight:700;color:var(--white);line-height:1.2;position:relative;z-index:1;}
+/* ─── APERÇU RAPPORT ─── */
+.rapport-section{padding:0 0 52px;background:#fff;}
+.rapport-intro{padding:0 22px 24px;text-align:center;}
+.rapport-intro .eyebrow{justify-content:center;display:block;}
 
-/* WHAT GRID */
-.what-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.what-card{background:var(--white);border-radius:18px;padding:20px 16px;border:1px solid var(--border);position:relative;overflow:hidden;}
-.what-card::before{content:'';position:absolute;top:-20px;right:-20px;width:80px;height:80px;background:radial-gradient(circle,rgba(46,204,113,0.1) 0%,transparent 70%);border-radius:50%;}
-.wc-icon{font-size:26px;margin-bottom:10px;display:block;}
-.what-card h3{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:5px;line-height:1.3;font-family:'Nunito',sans-serif;}
-.what-card p{font-size:12px;color:var(--muted);line-height:1.5;font-weight:300;}
+.rp-shell{margin:0 16px;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 6px 40px rgba(26,188,156,.12),0 1px 8px rgba(0,0,0,.06);border:1px solid rgba(26,188,156,.14);}
+.rp-topbar{background:#f7f7f7;padding:10px 14px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #efefef;}
+.rp-dots{display:flex;gap:5px;}
+.rp-dots span{width:10px;height:10px;border-radius:50%;}
+.rp-dots span:nth-child(1){background:#ff5f57;}
+.rp-dots span:nth-child(2){background:#febc2e;}
+.rp-dots span:nth-child(3){background:#28c840;}
+.rp-topbar-title{flex:1;text-align:center;font-size:10px;font-weight:500;color:#aaa;letter-spacing:.03em;}
+.rp-badge-ex{background:var(--g2);color:#fff;font-size:9px;font-weight:700;letter-spacing:.1em;padding:2px 8px;border-radius:100px;}
 
-/* LEGIT */
-.legit-quote-block{background:var(--ink);border-radius:22px;padding:28px 22px;margin:22px 0;position:relative;overflow:hidden;}
-.legit-quote-block::before{content:'"';position:absolute;top:-10px;left:14px;font-family:'Nunito',sans-serif;font-size:100px;font-weight:700;color:rgba(46,204,113,0.15);line-height:1;}
-.legit-qt{font-size:16px;font-weight:400;color:rgba(255,255,255,0.85);line-height:1.7;font-style:italic;position:relative;z-index:1;margin-bottom:16px;}
+.rp-page{padding:16px 14px;display:flex;flex-direction:column;gap:12px;}
+
+.rp-page-header{display:flex;justify-content:space-between;align-items:flex-start;}
+.rp-page-label{font-size:8px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--g2);margin-bottom:2px;}
+.rp-page-tag{font-size:8px;color:#ccc;font-style:italic;}
+.rp-logo-mini{font-family:'Nunito',sans-serif;font-size:13px;font-weight:900;color:var(--g2);}
+
+/* Hero row */
+.rp-hero-row{display:flex;align-items:center;background:linear-gradient(135deg,#f0fdf9,#e8f8f3);border-radius:13px;padding:12px 8px;border:1px solid rgba(26,188,156,.1);}
+.rp-hero-block{flex:1;text-align:center;}
+.rp-hero-center{flex:1.3;}
+.rp-hero-sep{width:1px;height:44px;background:rgba(26,188,156,.12);flex-shrink:0;}
+.rp-hero-label{font-size:8px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:3px;}
+.rp-hero-val{font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;color:var(--ink);line-height:1.2;}
+.rp-hero-sub{display:block;font-size:9px;font-weight:400;color:var(--muted);}
+
+/* Ring */
+.rp-severity-ring{position:relative;width:52px;height:52px;margin:0 auto 3px;}
+.rp-ring-svg{width:100%;height:100%;}
+.rp-ring-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.rp-ring-num{font-family:'Nunito',sans-serif;font-size:15px;font-weight:900;color:#e74c3c;line-height:1;}
+.rp-ring-max{font-size:7px;color:var(--muted);}
+.rp-severity-tag{font-size:8px;font-weight:700;color:#e74c3c;text-transform:uppercase;letter-spacing:.08em;text-align:center;}
+
+/* Dominance */
+.rp-dominance{background:#fafafa;border-radius:10px;padding:9px 11px;border:1px solid var(--border);}
+.rp-dom-label{font-size:8px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:7px;}
+.rp-dom-bar-wrap{display:flex;align-items:center;gap:7px;}
+.rp-dom-side{display:flex;flex-direction:column;align-items:center;min-width:52px;}
+.rp-dom-neuro .rp-dom-pct,.rp-dom-neuro .rp-dom-name{color:#6c5ce7;}
+.rp-dom-alim .rp-dom-pct,.rp-dom-alim .rp-dom-name{color:var(--g2);}
+.rp-dom-pct{font-family:'Nunito',sans-serif;font-size:13px;font-weight:800;}
+.rp-dom-name{font-size:7px;font-weight:500;text-align:center;line-height:1.3;}
+.rp-dom-track{flex:1;height:7px;background:#eee;border-radius:100px;overflow:hidden;}
+.rp-dom-fill{height:100%;background:linear-gradient(90deg,#6c5ce7,#1abc9c);border-radius:100px;}
+
+/* Scores */
+.rp-scores-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;}
+.rp-score-chip{background:#fafafa;border-radius:9px;padding:9px 10px;border:1px solid var(--border);}
+.rp-sc-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px;}
+.rp-sc-label{font-size:9px;color:var(--muted);font-weight:500;line-height:1.3;flex:1;padding-right:3px;}
+.rp-sc-val{font-family:'Nunito',sans-serif;font-size:17px;font-weight:800;flex-shrink:0;}
+.rp-sc-val span{font-size:9px;font-weight:400;color:var(--muted);}
+.rp-sc-bar{height:3px;background:#eee;border-radius:100px;overflow:hidden;}
+.rp-sc-fill{height:100%;border-radius:100px;}
+
+/* Insight */
+.rp-insight-block{display:flex;gap:9px;background:linear-gradient(135deg,#fff9e6,#fffdf5);border-radius:10px;padding:10px 11px;border:1px solid #fde68a;}
+.rp-insight-icon{font-size:14px;flex-shrink:0;margin-top:1px;}
+.rp-insight-text{font-size:10px;color:var(--ink2);line-height:1.6;}
+.rp-insight-text strong{color:var(--ink);font-weight:600;}
+.rp-insight-text b{color:#f39c12;font-weight:600;font-style:normal;}
+
+/* Leviers */
+.rp-leviers-header{display:flex;justify-content:space-between;align-items:baseline;}
+.rp-leviers-title{font-family:'Nunito',sans-serif;font-size:11px;font-weight:800;color:var(--ink);}
+.rp-leviers-sub{font-size:9px;color:var(--muted);}
+.rp-levier{display:flex;gap:9px;border-radius:9px;padding:10px 11px;}
+.rp-lev-1{background:linear-gradient(135deg,#f0fdf9,#e6f9f4);border:1px solid rgba(26,188,156,.22);}
+.rp-lev-2{background:linear-gradient(135deg,#f0f4ff,#eaf0ff);border:1px solid rgba(108,92,231,.18);}
+.rp-lev-3{background:linear-gradient(135deg,#fffaf0,#fff5e6);border:1px solid rgba(243,156,18,.18);}
+.rp-lev-num{width:20px;height:20px;border-radius:6px;font-family:'Nunito',sans-serif;font-size:11px;font-weight:800;color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.rp-lev-1 .rp-lev-num{background:var(--grad);}
+.rp-lev-2 .rp-lev-num{background:linear-gradient(135deg,#6c5ce7,#a29bfe);}
+.rp-lev-3 .rp-lev-num{background:linear-gradient(135deg,#f39c12,#f5d020);}
+.rp-lev-body{flex:1;}
+.rp-lev-title{font-size:11px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+.rp-lev-desc{font-size:9px;color:var(--ink2);line-height:1.5;margin-bottom:5px;}
+.rp-lev-tags{display:flex;gap:4px;flex-wrap:wrap;}
+.rp-lev-tags span{font-size:8px;font-weight:600;letter-spacing:.04em;padding:2px 6px;border-radius:100px;background:rgba(0,0,0,.05);color:var(--muted);}
+
+/* Blur gate */
+.rp-blur-wrap{position:relative;}
+.rp-blur-content{display:flex;flex-direction:column;gap:7px;}
+.rp-blur-gate{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(255,255,255,.4) 0%,rgba(255,255,255,.97) 38%);}
+.rp-blur-gate-inner{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;padding:10px;}
+.rp-blur-gate-icon{font-size:18px;}
+.rp-blur-gate-text{font-size:11px;font-weight:600;color:var(--ink);line-height:1.4;}
+.rp-blur-gate-btn{background:var(--grad);color:#fff;font-family:'Nunito',sans-serif;font-size:13px;font-weight:800;padding:10px 22px;border-radius:100px;text-decoration:none;box-shadow:0 4px 16px rgba(26,188,156,.35);white-space:nowrap;}
+
+.rapport-footnote{text-align:center;font-size:11px;color:var(--muted);margin-top:14px;padding:0 22px;letter-spacing:.02em;}
+
+/* ─── TESTIMONIALS ─── */
+.testi-section{padding:52px 22px;background:var(--light);}
+.testi-section .section-h2{text-align:left;margin-bottom:6px;}
+.testi-sub-text{font-size:13px;color:var(--muted);margin-bottom:24px;font-weight:300;}
+.testi-card{background:#fff;border-radius:18px;padding:20px;border:1px solid var(--border);margin-bottom:12px;position:relative;}
+.testi-card::before{content:'"';position:absolute;top:10px;right:18px;font-family:'Nunito',sans-serif;font-size:60px;font-weight:900;color:rgba(26,188,156,.1);line-height:1;}
+.pro-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(26,188,156,.08);border:1px solid rgba(26,188,156,.22);color:var(--g3);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:100px;margin-bottom:10px;}
+.testi-stars{color:#f59e0b;font-size:13px;margin-bottom:8px;letter-spacing:1px;}
+.testi-text{font-size:14px;color:var(--ink2);line-height:1.7;font-style:italic;margin-bottom:14px;font-weight:300;}
+.testi-author{display:flex;align-items:center;gap:9px;}
+.testi-av{width:36px;height:36px;background:var(--grad);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
+.testi-name{font-size:13px;font-weight:600;color:var(--ink);}
+.testi-role{font-size:11px;color:var(--muted);}
+
+/* ─── PARCOURS ─── */
+.parcours-section{padding:52px 22px;background:#fff;}
+.step-list{display:flex;flex-direction:column;gap:0;max-width:480px;margin:0 auto;}
+.step-item{display:flex;gap:16px;position:relative;padding-bottom:24px;}
+.step-item:last-child{padding-bottom:0;}
+.step-left{display:flex;flex-direction:column;align-items:center;flex-shrink:0;}
+.step-circle{width:36px;height:36px;background:var(--grad);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;color:#fff;flex-shrink:0;}
+.step-line{flex:1;width:2px;background:linear-gradient(180deg,rgba(26,188,156,.3),rgba(26,188,156,.05));margin-top:4px;}
+.step-item:last-child .step-line{display:none;}
+.step-right{padding-top:6px;flex:1;}
+.step-right h3{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:3px;}
+.step-right p{font-size:13px;color:var(--muted);line-height:1.55;font-weight:300;}
+.step-tag{display:inline-block;background:var(--grad-soft);border:1px solid var(--border);color:var(--g3);font-size:10px;font-weight:600;padding:2px 9px;border-radius:100px;margin-top:6px;}
+.parcours-note{text-align:center;margin-top:24px;font-size:13px;color:var(--muted);}
+.parcours-note strong{color:var(--ink);}
+
+.legit-origin{display:flex;flex-direction:column;gap:12px;margin-top:20px;}
+.legit-origin-item{display:flex;gap:12px;align-items:flex-start;background:#fff;border-radius:14px;padding:14px 15px;border:1px solid var(--border);}
+.legit-origin-icon{font-size:22px;flex-shrink:0;margin-top:1px;}
+.legit-origin-item strong{display:block;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:3px;}
+.legit-origin-item p{font-size:12px;color:var(--muted);line-height:1.55;font-weight:300;}
+
+/* ─── LEGIT ─── */
+.legit-section{padding:52px 22px;background:var(--light);}
+.legit-quote{background:var(--ink);border-radius:20px;padding:26px 20px;margin:20px 0;position:relative;overflow:hidden;}
+.legit-quote::before{content:'"';position:absolute;top:-14px;left:14px;font-family:'Nunito',sans-serif;font-size:110px;font-weight:900;color:rgba(46,204,113,.1);line-height:1;}
+.legit-qt{font-size:15px;font-weight:300;color:rgba(255,255,255,.85);line-height:1.75;font-style:italic;position:relative;z-index:1;margin-bottom:16px;}
 .legit-author{display:flex;align-items:center;gap:10px;position:relative;z-index:1;}
 .legit-av{width:36px;height:36px;background:var(--grad);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;}
-.legit-name{font-size:13px;font-weight:600;color:var(--white);}
-.legit-role{font-size:11px;color:rgba(255,255,255,0.4);}
-.legit-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:22px;}
-.lstat{background:var(--light);border:1px solid var(--border);border-radius:16px;padding:18px 10px;text-align:center;}
-.lstat-num{font-family:'Nunito',sans-serif;font-size:24px;font-weight:700;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:4px;}
-.lstat-lbl{font-size:10px;color:var(--muted);line-height:1.3;}
+.legit-name{font-size:13px;font-weight:600;color:#fff;}
+.legit-role{font-size:11px;color:rgba(255,255,255,.38);}
+.legit-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:0;}
+.lstat{background:#fff;border:1px solid var(--border);border-radius:14px;padding:16px 10px;text-align:center;}
+.lstat-num{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:4px;}
+.lstat-lbl{font-size:10px;color:var(--muted);line-height:1.35;}
 
-/* LAUNCH */
-.launch{margin:0 20px 40px;background:var(--grad-soft);border:1px solid var(--border);border-radius:22px;padding:24px 20px;display:flex;gap:16px;align-items:flex-start;}
-.launch-icon{font-size:32px;flex-shrink:0;margin-top:2px;}
-.launch h3{font-family:'Nunito',sans-serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:6px;}
-.launch p{font-size:13px;color:var(--muted);line-height:1.6;font-weight:300;}
-
-/* OFFRE */
-.offre{padding:60px 20px 120px;background:var(--ink);position:relative;overflow:hidden;}
-.offre::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(46,204,113,0.12) 0%,transparent 65%);border-radius:50%;}
-.offre::after{content:'';position:absolute;bottom:-80px;left:-80px;width:300px;height:300px;background:radial-gradient(circle,rgba(26,188,156,0.1) 0%,transparent 65%);border-radius:50%;}
+/* ─── OFFRE ─── */
+.offre{padding:56px 22px 120px;background:var(--ink);position:relative;overflow:hidden;}
+.offre::before{content:'';position:absolute;top:-120px;right:-120px;width:400px;height:400px;background:radial-gradient(circle,rgba(46,204,113,.1) 0%,transparent 65%);border-radius:50%;}
+.offre::after{content:'';position:absolute;bottom:-80px;left:-80px;width:280px;height:280px;background:radial-gradient(circle,rgba(26,188,156,.08) 0%,transparent 65%);border-radius:50%;}
 .offre-inner{position:relative;z-index:1;}
 .offre .eyebrow{color:var(--g1);}
-.offre-title{font-family:'Nunito',sans-serif;font-size:clamp(30px,9vw,46px);font-weight:700;color:var(--white);line-height:1.05;margin-bottom:8px;}
-.offre-sub{font-size:15px;color:rgba(255,255,255,0.4);font-weight:300;margin-bottom:28px;}
-.price-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:28px 22px;backdrop-filter:blur(10px);margin-bottom:16px;}
-.price-row{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:24px;}
-.price-old{font-size:14px;color:rgba(255,255,255,0.25);text-decoration:line-through;margin-bottom:2px;}
-.price-new{font-family:'Nunito',sans-serif;font-size:62px;font-weight:700;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;}
-.price-badge{background:rgba(46,204,113,0.15);border:1px solid rgba(46,204,113,0.3);color:var(--g1);font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:7px 12px;border-radius:100px;margin-top:4px;white-space:nowrap;}
-.price-div{height:1px;background:rgba(255,255,255,0.07);margin-bottom:20px;}
-.price-list{list-style:none;margin-bottom:24px;display:flex;flex-direction:column;gap:12px;}
-.price-list li{display:flex;align-items:center;gap:12px;font-size:14px;color:rgba(255,255,255,0.8);}
-.check{width:22px;height:22px;background:rgba(46,204,113,0.2);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.check svg{width:11px;height:11px;stroke:var(--g1);stroke-width:2.5;fill:none;}
-.btn-offre{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:var(--grad);color:var(--white);font-family:'Nunito',sans-serif;font-size:17px;font-weight:700;padding:20px;border-radius:16px;text-decoration:none;box-shadow:0 8px 40px rgba(46,204,113,0.5);min-height:60px;transition:transform 0.15s;}
-.btn-offre:active{transform:scale(0.98);}
-.offre-guarantee{margin-top:14px;font-size:13px;color:rgba(255,255,255,0.3);text-align:center;line-height:1.6;font-weight:300;}
+.offre-title{font-family:'Nunito',sans-serif;font-size:clamp(32px,9vw,48px);font-weight:900;color:#fff;line-height:1.05;margin-bottom:6px;letter-spacing:-1px;}
+.offre-sub{font-size:14px;color:rgba(255,255,255,.35);font-weight:300;margin-bottom:28px;}
+.price-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:22px;padding:26px 20px;backdrop-filter:blur(10px);}
+.price-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:22px;}
+.price-old{font-size:13px;color:rgba(255,255,255,.2);text-decoration:line-through;margin-bottom:2px;}
+.price-new{font-family:'Nunito',sans-serif;font-size:58px;font-weight:900;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;}
+.price-badge{background:rgba(46,204,113,.15);border:1px solid rgba(46,204,113,.28);color:var(--g1);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:6px 12px;border-radius:100px;margin-top:6px;white-space:nowrap;}
+.price-div{height:1px;background:rgba(255,255,255,.06);margin-bottom:18px;}
+.price-list{list-style:none;margin-bottom:22px;display:flex;flex-direction:column;gap:11px;}
+.price-list li{display:flex;align-items:center;gap:11px;font-size:14px;color:rgba(255,255,255,.78);}
+.check{width:20px;height:20px;background:rgba(46,204,113,.18);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.check svg{width:10px;height:10px;stroke:var(--g1);stroke-width:2.5;fill:none;}
+.btn-offre{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;background:var(--grad);color:#fff;font-family:'Nunito',sans-serif;font-size:17px;font-weight:800;padding:19px;border-radius:14px;text-decoration:none;box-shadow:0 8px 40px rgba(46,204,113,.5);min-height:58px;transition:transform .15s;letter-spacing:.01em;}
+.btn-offre:active{transform:scale(.98);}
+.offre-guarantee{margin-top:14px;font-size:13px;color:rgba(255,255,255,.28);text-align:center;line-height:1.6;font-weight:300;}
+.offre-compare{margin-top:18px;font-size:12px;color:rgba(255,255,255,.22);text-align:center;font-style:italic;}
 
-/* FAQ */
-.faq{padding:60px 20px 100px;background:var(--white);}
-.faq h2{font-family:'Nunito',sans-serif;font-size:28px;font-weight:700;color:var(--ink);margin-bottom:28px;}
-.faq-item{border-top:1px solid rgba(0,0,0,0.07);padding:20px 0;cursor:pointer;}
-.faq-item:last-child{border-bottom:1px solid rgba(0,0,0,0.07);}
+/* ─── FAQ ─── */
+.faq{padding:56px 22px 80px;background:#fff;}
+.faq .section-h2{margin-bottom:28px;}
+.faq-item{border-top:1px solid rgba(0,0,0,.06);padding:18px 0;cursor:pointer;}
+.faq-item:last-child{border-bottom:1px solid rgba(0,0,0,.06);}
 .faq-q{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;}
-.faq-q-text{font-size:15px;font-weight:600;color:var(--ink);line-height:1.4;flex:1;}
-.faq-toggle{width:28px;height:28px;background:var(--light);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.2s;}
-.faq-toggle svg{width:12px;height:12px;stroke:var(--g2);stroke-width:2.5;fill:none;transition:transform 0.3s;}
+.faq-q-text{font-size:14px;font-weight:600;color:var(--ink);line-height:1.4;flex:1;}
+.faq-toggle{width:26px;height:26px;background:var(--light);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s;}
+.faq-toggle svg{width:11px;height:11px;stroke:var(--g2);stroke-width:2.5;fill:none;transition:transform .3s;}
 .faq-item.open .faq-toggle{background:var(--grad-soft);}
 .faq-item.open .faq-toggle svg{transform:rotate(180deg);}
-.faq-a{font-size:14px;color:var(--muted);line-height:1.75;font-weight:300;max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.3s;}
-.faq-item.open .faq-a{max-height:300px;padding-top:14px;}
+.faq-a{font-size:13px;color:var(--muted);line-height:1.75;font-weight:300;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s;}
+.faq-item.open .faq-a{max-height:300px;padding-top:12px;}
 
-/* FOOTER */
-footer{background:var(--ink2);padding:36px 20px calc(36px + env(safe-area-inset-bottom));text-align:center;}
-.footer-logo{font-family:'Nunito',sans-serif;font-size:24px;font-weight:700;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px;}
-footer p{font-size:12px;color:rgba(255,255,255,0.2);line-height:1.8;font-weight:300;}
+/* ─── FOOTER ─── */
+footer{background:var(--ink2);padding:32px 22px calc(32px + env(safe-area-inset-bottom));text-align:center;}
+.footer-logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:900;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px;letter-spacing:-0.5px;}
+footer p{font-size:11px;color:rgba(255,255,255,.18);line-height:1.9;font-weight:300;}
 
-/* ANIMATIONS */
-@keyframes up{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
-.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.55s ease,transform 0.55s ease;}
+/* ─── ANIMATIONS ─── */
+@keyframes up{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease;}
 .reveal.on{opacity:1;transform:translateY(0);}
 .d1{transition-delay:.08s;}.d2{transition-delay:.16s;}.d3{transition-delay:.24s;}
 
-/* DESKTOP */
+/* ─── DESKTOP ─── */
 @media(min-width:768px){
   .sticky{display:none;}
-  nav{padding:18px 48px;}
-  .hero{padding:110px 48px 60px;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
-  .hero h1{font-size:clamp(52px,5vw,80px)!important;line-height:1.05!important;}
-  .hero-blob1,.hero-blob2{display:none;}
-  .mockup{margin:0;}
+  nav{padding:16px 48px;}
+  .hero{padding:120px 48px 72px;max-width:1200px;margin:0 auto;}
   .proof-band{padding:20px 48px;grid-template-columns:repeat(4,1fr);}
   .sec{padding:80px 48px;max-width:1100px;margin:0 auto;}
   .sec.sec-light{max-width:100%;padding:80px 0;}
-  .sec.sec-light .sec-inner{max-width:1100px;margin:0 auto;padding:0 48px;}
-  .pain-list{display:grid;grid-template-columns:1fr 1fr;}
-  .what-grid{grid-template-columns:repeat(3,1fr);}
-  .legit-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;max-width:1100px;margin:0 auto;}
-  .launch{max-width:960px;margin:0 auto 60px;}
+  .pain-grid{display:grid;grid-template-columns:1fr 1fr;}
+  .rp-shell{margin:0 48px;}
+  .testi-section,.parcours-section,.legit-section{padding:80px 48px;}
+  .legit-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
   .offre{padding:80px 48px 100px;}
   .offre-inner{max-width:520px;margin:0 auto;}
-  .faq{max-width:700px;margin:0 auto;padding:80px 48px 100px;}
+  .faq{max-width:700px;margin:0 auto;padding:80px 48px 80px;}
+  .rapport-section{padding:0 0 72px;}
+  .rapport-intro{padding:52px 48px 28px;}
+  .rp-shell{margin:0 48px;max-width:600px;margin:0 auto;}
 }
 </style>
 </head>
@@ -216,7 +305,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.2);line-height:1.8;font-weight:
 
 <!-- STICKY -->
 <div class="sticky">
-  <div class="sticky-info">
+  <div class="sticky-price">
     <div class="sticky-old">49€</div>
     <div class="sticky-new">29€</div>
   </div>
@@ -226,202 +315,406 @@ footer p{font-size:12px;color:rgba(255,255,255,0.2);line-height:1.8;font-weight:
 <!-- NAV -->
 <nav>
   <div class="logo">MIRON</div>
-  <div class="nav-pill">29€ · Lancement</div>
+  <a href="https://tally.so/r/9q7LdG" class="nav-cta">Commencer →</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div>
-    <div class="hero-tag"><div class="tag-dot"></div>SII · Syndrome de l'intestin irritable</div>
-    <h1>Comprends enfin ton SII.<br><span class="grad-text">Un plan concret, adapté à ton profil.</span></h1>
-    <p class="hero-sub">T'as essayé des tas de choses. Rien ne tient. Parce que personne ne t'a encore donné un plan construit sur <strong>ton</strong> cas. MIRON analyse ton profil et te dit exactement quoi faire — et par où commencer.</p>
+  <div class="hero-blob"></div>
+  <div class="hero-tag"><div class="tag-dot"></div>Pour les personnes atteintes de SII</div>
 
-    <div class="steps-strip">
-      <div class="step-row">
-        <div class="step-num">1</div>
-        <div class="step-content"><strong>Tu remplis le questionnaire</strong><span>15 minutes · 60 questions</span></div>
-        <span class="step-icon">📋</span>
-      </div>
-      <div class="step-row">
-        <div class="step-num">2</div>
-        <div class="step-content"><strong>On analyse ton profil SII</strong><span>Déclencheurs · Sous-type · Sévérité</span></div>
-        <span class="step-icon">🔬</span>
-      </div>
-      <div class="step-row">
-        <div class="step-num">3</div>
-        <div class="step-content"><strong>Tu reçois ton rapport PDF</strong><span>48h max · Par email · + de 10 pages</span></div>
-        <span class="step-icon">📬</span>
-      </div>
-    </div>
+  <h1>Ton SII, enfin<br>expliqué.<br><span class="grad-text">Un plan rien<br>que pour toi.</span></h1>
 
-    <div class="hero-cta">
-      <a href="https://tally.so/r/9q7LdG" class="btn-big">Je veux mon rapport →</a>
-      <p class="hero-reassure">Prix de lancement <strong>29€</strong> · 48h · 🔒 Satisfait ou réponse perso</p>
-    </div>
+  <p class="hero-sub">
+    T'as essayé le FODMAP, les compléments, les médecins… et tu tournes encore en rond.<br>
+    <strong>Le problème ? Personne ne t'a encore donné un plan construit sur TON cas.</strong><br>
+    MIRON analyse tes réponses et génère un rapport personnalisé — conçu par un patient SII, validé par des diététiciennes spécialisées.
+  </p>
+
+  <div class="hero-cta">
+    <a href="https://tally.so/r/9q7LdG" class="btn-big">Je veux comprendre mon SII →</a>
   </div>
 
-  <!-- MOCKUP -->
-  <div class="mockup">
-    <div class="mockup-top">
-      <div class="mockup-dots">
-        <div class="mdot" style="background:#e8c4a0;"></div>
-        <div class="mdot" style="background:#2ecc71;"></div>
-        <div class="mdot" style="background:#7aaabf;"></div>
-      </div>
-      <div class="mockup-label">Rapport MIRON · Exemple</div>
+  <div class="hero-micro">
+    <div class="hero-micro-item">
+      <svg viewBox="0 0 24 24"><polyline points="20,6 9,17 4,12"/></svg>
+      Questionnaire gratuit
     </div>
-    <div class="mockup-body">
-      <div class="m-block">
-        <div class="m-label">Ton profil SII</div>
-        <div class="m-chips">
-          <span class="m-chip m-chip-green">Sous-type mixte</span>
-          <span class="m-chip m-chip-teal">Stress dominant</span>
-        </div>
-      </div>
-      <div class="m-block">
-        <div class="m-bar-row"><span>Score de sévérité</span><strong>45/100 — Modéré</strong></div>
-        <div class="m-bar-track"><div class="m-bar-fill"></div></div>
-      </div>
-      <div class="m-block">
-        <div class="m-label">Plan d'action · 3 leviers</div>
-        <div class="m-action"><div class="m-action-num">1</div><span>Axe intestin-cerveau · stress</span></div>
-        <div class="m-action"><div class="m-action-num">2</div><span>Identifier aliments FODMAP clés</span></div>
-        <div class="m-action"><div class="m-action-num">3</div><span>Rythme repas & sommeil</span></div>
-      </div>
+    <div class="hero-micro-item">
+      <svg viewBox="0 0 24 24"><polyline points="20,6 9,17 4,12"/></svg>
+      Rapport livré en 48h
+    </div>
+    <div class="hero-micro-item">
+      <svg viewBox="0 0 24 24"><polyline points="20,6 9,17 4,12"/></svg>
+      29€ · prix de lancement
     </div>
   </div>
-  <div class="hero-blob1"></div>
-  <div class="hero-blob2"></div>
 </section>
 
 <!-- PROOF BAND -->
 <div class="proof-band reveal">
-  <div class="proof-item"><div class="proof-icon">👥</div><div class="proof-text"><strong>25+</strong><span>questionnaires remplis</span></div></div>
+  <div class="proof-item"><div class="proof-icon">📋</div><div class="proof-text"><strong>50+</strong><span>rapports générés</span></div></div>
   <div class="proof-item"><div class="proof-icon">⚡</div><div class="proof-text"><strong>48h</strong><span>délai livraison</span></div></div>
-  <div class="proof-item"><div class="proof-icon">📄</div><div class="proof-text"><strong>+ de 10 pages</strong><span>rapport PDF</span></div></div>
-  <div class="proof-item"><div class="proof-icon">🎯</div><div class="proof-text"><strong>100%</strong><span>personnalisé</span></div></div>
+  <div class="proof-item"><div class="proof-icon">📄</div><div class="proof-text"><strong>+10 pages</strong><span>rapport complet</span></div></div>
+  <div class="proof-item"><div class="proof-icon">✅</div><div class="proof-text"><strong>Validé</strong><span>par des diététiciennes</span></div></div>
 </div>
 
 <!-- PAIN -->
 <section class="sec">
-  <span class="eyebrow reveal">Le problème</span>
+  <span class="eyebrow reveal">Ça te ressemble ?</span>
   <h2 class="reveal">T'as tout essayé.<br>Rien ne tient.</h2>
-  <p class="sec-sub reveal">Le SII touche 1 personne sur 7. Pourtant la plupart repartent du médecin sans plan. C'est ça qu'on règle.</p>
-  <div class="pain-list">
-    <div class="pain-card reveal"><span class="pain-emoji">🔄</span><div><h3>T'as tout essayé. Rien ne dure.</h3><p>FODMAP, médocs, compléments… Tu tournes en rond parce que les conseils sont génériques. Ton SII ne ressemble à celui de personne d'autre.</p></div></div>
-    <div class="pain-card reveal d1"><span class="pain-emoji">🏥</span><div><h3>"C'est fonctionnel." Merci, au revoir.</h3><p>Bilan normal. Renvoyé chez toi sans explication, sans plan. Seul face à quelque chose que tu ne comprends pas.</p></div></div>
-    <div class="pain-card reveal d2"><span class="pain-emoji">😰</span><div><h3>Chaque repas est une source d'anxiété.</h3><p>Tu anticipes, tu calcules, tu évites. La charge mentale s'accumule autant que les symptômes physiques.</p></div></div>
-    <div class="pain-card reveal d3"><span class="pain-emoji">🤝</span><div><h3>Tu te sens seul avec ça.</h3><p>Le SII c'est invisible. Difficile à expliquer, difficile à vivre. Et souvent impossible à faire comprendre aux autres.</p></div></div>
+  <p class="sec-sub reveal">Le SII, c'est 1 personne sur 7. Et pourtant, la plupart repartent du médecin sans plan. Sans explication. Sans rien.</p>
+
+  <div class="pain-grid">
+    <div class="pain-card reveal">
+      <span class="pain-emoji">🔄</span>
+      <div>
+        <h3>T'as tout essayé. Rien ne dure.</h3>
+        <p>FODMAP, probiotiques, exclusions… Les conseils sont génériques. Ton SII, lui, ne ressemble à celui de personne d'autre.</p>
+      </div>
+    </div>
+    <div class="pain-card reveal d1">
+      <span class="pain-emoji">🏥</span>
+      <div>
+        <h3>"C'est fonctionnel." Merci, au revoir.</h3>
+        <p>Bilan normal. Renvoyé chez toi sans explication, sans plan. Seul face à quelque chose que tu ne comprends pas encore.</p>
+      </div>
+    </div>
+    <div class="pain-card reveal d2">
+      <span class="pain-emoji">😰</span>
+      <div>
+        <h3>Chaque repas est une source d'angoisse.</h3>
+        <p>Tu anticipes, tu évites, tu calcules. La charge mentale pèse autant que les douleurs elles-mêmes.</p>
+      </div>
+    </div>
+    <div class="pain-card reveal d3">
+      <span class="pain-emoji">🧩</span>
+      <div>
+        <h3>T'as l'impression qu'il manque une pièce.</h3>
+        <p>Tu fais des efforts. Mais sans comprendre ce qui se passe vraiment chez toi, tu avances à l'aveugle.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pain-bridge reveal" style="margin-top:20px;">
+    <div class="pain-bridge-icon">💡</div>
+    <p><strong>MIRON identifie ce qui se passe vraiment chez toi</strong> — sous-type, déclencheurs, dominance — et te donne un plan d'action priorisé. Voici à quoi ça ressemble ↓</p>
   </div>
 </section>
 
-<!-- TRANSITION -->
-<div class="trans-band reveal">
-  <p>MIRON te donne la clarté<br>que personne ne t'a donnée.</p>
-</div>
+<!-- APERÇU RAPPORT -->
+<section class="rapport-section">
+  <div class="rapport-intro">
+    <span class="eyebrow reveal">Exemple de rapport</span>
+    <h2 class="section-h2 reveal" style="text-align:center;">Ce que tu reçois,<br>concrètement</h2>
+    <p class="rapport-sub reveal" style="font-size:13px;color:var(--muted);margin-top:6px;">Profil anonymisé · Le tien sera entièrement différent</p>
+  </div>
 
-<!-- WHAT -->
-<section class="sec sec-light">
-  <div class="sec-inner">
-    <span class="eyebrow reveal">Ce que tu reçois</span>
-    <h2 class="reveal">+ de 10 pages construites<br>sur <em>ton</em> cas.</h2>
-    <p class="sec-sub reveal">Deux personnes avec le SII ne reçoivent pas le même rapport.</p>
-    <div class="what-grid">
-      <div class="what-card reveal"><span class="wc-icon">🧬</span><h3>Ton profil SII</h3><p>Sous-type, sévérité, dominance stress ou alimentaire.</p></div>
-      <div class="what-card reveal d1"><span class="wc-icon">💡</span><h3>Pourquoi tu réagis comme ça</h3><p>L'explication de ton cas, sans jargon médical.</p></div>
-      <div class="what-card reveal d2"><span class="wc-icon">📊</span><h3>Cartographie des symptômes</h3><p>Transit, douleurs, ballonnements, urgences.</p></div>
-      <div class="what-card reveal"><span class="wc-icon">⚡</span><h3>Tes déclencheurs</h3><p>Identifiés dans ton contexte précis.</p></div>
-      <div class="what-card reveal d1"><span class="wc-icon">🎯</span><h3>Plan d'action · 3 leviers</h3><p>Dans l'ordre. Ce qu'il faut éviter aussi.</p></div>
-      <div class="what-card reveal d2"><span class="wc-icon">📅</span><h3>Suivi 14 jours</h3><p>Critères de progrès concrets pour mesurer l'évolution.</p></div>
+  <div class="rp-shell reveal">
+    <div class="rp-topbar">
+      <div class="rp-dots"><span></span><span></span><span></span></div>
+      <div class="rp-topbar-title">Analyse Fonctionnelle MIRON · S., 29 ans</div>
+      <div class="rp-badge-ex">EXEMPLE</div>
+    </div>
+    <div class="rp-page">
+      <div class="rp-page-header">
+        <div>
+          <div class="rp-page-label">Profil actuel synthétique</div>
+          <div class="rp-page-tag">Document éducatif · ne constitue pas un diagnostic médical</div>
+        </div>
+        <div class="rp-logo-mini">MIRON</div>
+      </div>
+
+      <div class="rp-hero-row">
+        <div class="rp-hero-block">
+          <div class="rp-hero-label">Sous-type SII</div>
+          <div class="rp-hero-val">IBS-M <span class="rp-hero-sub">Mixte</span></div>
+        </div>
+        <div class="rp-hero-sep"></div>
+        <div class="rp-hero-block rp-hero-center">
+          <div class="rp-hero-label">Sévérité globale</div>
+          <div class="rp-severity-ring">
+            <svg viewBox="0 0 64 64" class="rp-ring-svg">
+              <circle cx="32" cy="32" r="27" fill="none" stroke="#f0faf7" stroke-width="6"/>
+              <circle cx="32" cy="32" r="27" fill="none" stroke="url(#rg)" stroke-width="6"
+                stroke-dasharray="169.6" stroke-dashoffset="47.5" stroke-linecap="round"
+                transform="rotate(-90 32 32)"/>
+              <defs><linearGradient id="rg" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#f39c12"/>
+                <stop offset="100%" stop-color="#e74c3c"/>
+              </linearGradient></defs>
+            </svg>
+            <div class="rp-ring-label"><span class="rp-ring-num">72</span><span class="rp-ring-max">/100</span></div>
+          </div>
+          <div class="rp-severity-tag">Sévère</div>
+        </div>
+        <div class="rp-hero-sep"></div>
+        <div class="rp-hero-block">
+          <div class="rp-hero-label">Durée</div>
+          <div class="rp-hero-val">+5 ans <span class="rp-hero-sub">installés</span></div>
+        </div>
+      </div>
+
+      <div class="rp-dominance">
+        <div class="rp-dom-label">Dominance identifiée</div>
+        <div class="rp-dom-bar-wrap">
+          <div class="rp-dom-side rp-dom-neuro"><span class="rp-dom-pct">60%</span><span class="rp-dom-name">Neuro-fonctionnel</span></div>
+          <div class="rp-dom-track"><div class="rp-dom-fill" style="width:60%"></div></div>
+          <div class="rp-dom-side rp-dom-alim"><span class="rp-dom-pct">40%</span><span class="rp-dom-name">Alimentaire</span></div>
+        </div>
+      </div>
+
+      <div class="rp-scores-grid">
+        <div class="rp-score-chip">
+          <div class="rp-sc-top"><div class="rp-sc-label">Douleurs abdominales</div><div class="rp-sc-val" style="color:#e74c3c;">7<span>/10</span></div></div>
+          <div class="rp-sc-bar"><div class="rp-sc-fill" style="width:70%;background:linear-gradient(90deg,#f39c12,#e74c3c)"></div></div>
+        </div>
+        <div class="rp-score-chip">
+          <div class="rp-sc-top"><div class="rp-sc-label">Impact vie quotidienne</div><div class="rp-sc-val" style="color:#e74c3c;">8<span>/10</span></div></div>
+          <div class="rp-sc-bar"><div class="rp-sc-fill" style="width:80%;background:linear-gradient(90deg,#f39c12,#e74c3c)"></div></div>
+        </div>
+        <div class="rp-score-chip">
+          <div class="rp-sc-top"><div class="rp-sc-label">Stress général</div><div class="rp-sc-val" style="color:#f39c12;">8<span>/10</span></div></div>
+          <div class="rp-sc-bar"><div class="rp-sc-fill" style="width:80%;background:linear-gradient(90deg,#f5d020,#f39c12)"></div></div>
+        </div>
+        <div class="rp-score-chip">
+          <div class="rp-sc-top"><div class="rp-sc-label">Motivation</div><div class="rp-sc-val" style="color:#1abc9c;">10<span>/10</span></div></div>
+          <div class="rp-sc-bar"><div class="rp-sc-fill" style="width:100%;background:linear-gradient(90deg,#1abc9c,#2ecc71)"></div></div>
+        </div>
+      </div>
+
+      <div class="rp-insight-block">
+        <div class="rp-insight-icon">💡</div>
+        <div class="rp-insight-text"><strong>Ce qui domine chez toi :</strong> Douleurs <b>après chaque repas</b>, ballonnements visibles, fatigue chronique, réveils nocturnes — deux signaux qui distinguent ce profil et orientent le plan d'action.</div>
+      </div>
+
+      <div class="rp-leviers-header">
+        <div class="rp-leviers-title">Plan d'action prioritaire</div>
+        <div class="rp-leviers-sub">3 leviers · dans l'ordre d'impact</div>
+      </div>
+
+      <div class="rp-levier rp-lev-1">
+        <div class="rp-lev-num">1</div>
+        <div class="rp-lev-body">
+          <div class="rp-lev-title">Traiter l'hypersensibilité viscérale</div>
+          <div class="rp-lev-desc">Gut-directed hypnotherapy ou TCC-SII — le plus documenté pour douleurs nocturnes et 8/10 non soulagées par les selles.</div>
+          <div class="rp-lev-tags"><span>Dès maintenant</span><span>Priorité absolue</span></div>
+        </div>
+      </div>
+
+      <div class="rp-levier rp-lev-2">
+        <div class="rp-lev-num">2</div>
+        <div class="rp-lev-body">
+          <div class="rp-lev-title">Restaurer le microbiote</div>
+          <div class="rp-lev-desc">Approche post-infectieuse ciblée — changer de souche probiotique + bilan calprotectine fécale.</div>
+          <div class="rp-lev-tags"><span>Semaine 1</span><span>SII post-infectieux</span></div>
+        </div>
+      </div>
+
+      <div class="rp-blur-wrap">
+        <div class="rp-blur-content">
+          <div class="rp-levier rp-lev-3" style="filter:blur(4px);opacity:0.45;pointer-events:none;">
+            <div class="rp-lev-num">3</div>
+            <div class="rp-lev-body">
+              <div class="rp-lev-title">Réduire la charge digestive par repas</div>
+              <div class="rp-lev-desc">Fractionner les repas, manger lentement, augmenter l'hydratation entre les repas.</div>
+              <div class="rp-lev-tags"><span>Dès maintenant</span><span>Post-prandial</span></div>
+            </div>
+          </div>
+          <div style="filter:blur(4px);opacity:0.35;margin-top:6px;background:#f0faf7;border-radius:8px;padding:9px 11px;font-size:9px;color:#666;">
+            + Cartographie symptômes · Déclencheurs identifiés · Tableau suivi 14 jours · Hypothèses fonctionnelles · Annexe technique...
+          </div>
+        </div>
+        <div class="rp-blur-gate">
+          <div class="rp-blur-gate-inner">
+            <div class="rp-blur-gate-icon">🔒</div>
+            <div class="rp-blur-gate-text">Ton 3ème levier + 10 autres pages<br>t'attendent dans ton rapport</div>
+            <a href="https://tally.so/r/9q7LdG" class="rp-blur-gate-btn">Obtenir mon rapport →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="rapport-footnote reveal">🔒 Profil anonymisé · Ton rapport sera entièrement construit sur tes réponses</p>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-section">
+  <span class="eyebrow reveal">Avis professionnels</span>
+  <h2 class="section-h2 reveal">Validé par des diététiciennes<br>spécialisées SII</h2>
+  <p class="testi-sub-text reveal">Ces professionnelles ont lu le rapport et partagé leur avis spontanément.</p>
+
+  <div class="testi-card reveal">
+    <div class="pro-badge">✓ Diététicienne · Québec</div>
+    <div class="testi-stars">★★★★★</div>
+    <p class="testi-text">"Un outil formidable, très bien pensé. Je vois définitivement l'utilité — autant pour les personnes atteintes de SII que pour leurs professionnels de santé. Les recommandations sont concrètes et font beaucoup de sens."</p>
+    <div class="testi-author">
+      <div class="testi-av">👩‍⚕️</div>
+      <div>
+        <div class="testi-name">Clémence C.</div>
+        <div class="testi-role">Diététicienne-Nutritionniste · Québec</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="testi-card reveal">
+    <div class="pro-badge">✓ Diététicienne · Nutrition Sportive</div>
+    <div class="testi-stars">★★★★★</div>
+    <p class="testi-text">"Très complet, bien détaillé, avec plusieurs pistes concrètes pour les personnes atteintes de SII. Tu mets bien en valeur les professionnels à consulter — c'est souvent là qu'on se perd. Une analyse riche en informations."</p>
+    <div class="testi-author">
+      <div class="testi-av">👩‍⚕️</div>
+      <div>
+        <div class="testi-name">Camille B.</div>
+        <div class="testi-role">Diététicienne & Chargée de Projets en Nutrition Sportive</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARCOURS -->
+<section class="parcours-section">
+  <span class="eyebrow reveal">Comment ça marche</span>
+  <h2 class="section-h2 reveal">3 étapes,<br>aussi simple que ça.</h2>
+  <p class="sec-sub reveal" style="margin-bottom:32px;">Tu paies <strong>après</strong> le questionnaire — pas avant.</p>
+
+  <div class="step-list">
+    <div class="step-item reveal">
+      <div class="step-left">
+        <div class="step-circle">1</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-right">
+        <h3>Tu réponds au questionnaire</h3>
+        <p>Gratuit. À ton rythme. On couvre tes symptômes, déclencheurs, historique, mode de vie.</p>
+        <span class="step-tag">~10 min · entièrement gratuit</span>
+      </div>
+    </div>
+    <div class="step-item reveal d1">
+      <div class="step-left">
+        <div class="step-circle">2</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-right">
+        <h3>Tu règles ton rapport · 29€</h3>
+        <p>Seulement après le questionnaire. Tu sais ce que tu achètes avant de payer.</p>
+        <span class="step-tag">29€ au lieu de 49€ · prix de lancement</span>
+      </div>
+    </div>
+    <div class="step-item reveal d2">
+      <div class="step-left">
+        <div class="step-circle">3</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-right">
+        <h3>Tu reçois ton rapport PDF</h3>
+        <p>+10 pages construites sur ton cas. Dans ta boîte email. Avec un plan d'action priorisé.</p>
+        <span class="step-tag">Livré en 48h · par email</span>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- LEGIT -->
-<section class="sec">
-  <div class="legit-inner">
-    <div>
-      <span class="eyebrow reveal">Pourquoi MIRON</span>
-      <h2 class="reveal">Pas un médecin.<br>Un patient qui<br>a structuré.</h2>
-      <div class="legit-quote-block reveal">
-        <p class="legit-qt">"J'ai créé MIRON parce que j'en avais marre de chercher des réponses génériques qui ne correspondaient pas à mon cas. Je suis patient SII moi-même. Ce rapport ce n'est pas du vent — c'est ce que j'aurais voulu avoir le jour où tout a commencé."</p>
-        <div class="legit-author">
-          <div class="legit-av">👤</div>
-          <div><div class="legit-name">Baptiste</div><div class="legit-role">Fondateur MIRON · Patient SII</div></div>
-        </div>
+<section class="legit-section">
+  <span class="eyebrow reveal">Pourquoi MIRON</span>
+  <h2 class="section-h2 reveal">Pas un médecin.<br>Un patient SII qui<br>a structuré.</h2>
+
+  <div class="legit-quote reveal">
+    <p class="legit-qt">"J'ai créé MIRON parce que j'en avais marre de chercher des réponses génériques qui ne correspondaient pas à mon cas. Je suis patient SII moi-même. Ce rapport, c'est ce que j'aurais voulu avoir le jour où tout a commencé."</p>
+    <div class="legit-author">
+      <div class="legit-av">👤</div>
+      <div>
+        <div class="legit-name">Baptiste</div>
+        <div class="legit-role">Fondateur MIRON · Patient SII</div>
       </div>
     </div>
-    <div>
-      <div class="legit-stats reveal">
-        <div class="lstat"><div class="lstat-num">25+</div><div class="lstat-lbl">questionnaires remplis</div></div>
-        <div class="lstat"><div class="lstat-num">60+</div><div class="lstat-lbl">questions dans le questionnaire</div></div>
-        <div class="lstat"><div class="lstat-num">48h</div><div class="lstat-lbl">délai de livraison</div></div>
-      </div>
+  </div>
+
+  <div class="legit-origin reveal">
+    <div class="legit-origin-item">
+      <div class="legit-origin-icon">🧠</div>
+      <div><strong>Conçu par un patient SII</strong><p>Baptiste a structuré la méthodologie à partir de son propre parcours et de la littérature clinique sur le SII.</p></div>
     </div>
+    <div class="legit-origin-item">
+      <div class="legit-origin-icon">👩‍⚕️</div>
+      <div><strong>Validé par des diététiciennes spécialisées</strong><p>Le contenu et les recommandations ont été relus et approuvés par des professionnelles de santé spécialisées SII.</p></div>
+    </div>
+    <div class="legit-origin-item">
+      <div class="legit-origin-icon">📋</div>
+      <div><strong>Généré sur tes réponses</strong><p>Chaque rapport est produit à partir de tes réponses au questionnaire. Ce n'est pas un PDF générique — c'est ton cas, structuré.</p></div>
+    </div>
+  </div>
+
+  <div class="legit-stats reveal">
+    <div class="lstat"><div class="lstat-num">50+</div><div class="lstat-lbl">rapports générés</div></div>
+    <div class="lstat"><div class="lstat-num">60+</div><div class="lstat-lbl">questions dans le questionnaire</div></div>
+    <div class="lstat"><div class="lstat-num">48h</div><div class="lstat-lbl">délai de livraison</div></div>
   </div>
 </section>
-
-<!-- LAUNCH -->
-<div class="launch reveal">
-  <span class="launch-icon">🌱</span>
-  <div>
-    <h3>Phase de lancement</h3>
-    <p>Je construis MIRON seul, en tant que patient SII. Si le rapport ne t'apporte rien, je te réponds personnellement. Tu n'achètes pas un produit anonyme.</p>
-  </div>
-</div>
 
 <!-- OFFRE -->
 <section class="offre" id="offre">
   <div class="offre-inner">
-    <span class="eyebrow reveal">Commander maintenant</span>
-    <h2 class="offre-title reveal">Rapport<br>personnalisé<br>MIRON</h2>
-    <p class="offre-sub reveal">Questionnaire + analyse + PDF 48h</p>
+    <span class="eyebrow reveal">Commander</span>
+    <h2 class="offre-title reveal">Ton rapport<br>MIRON</h2>
+    <p class="offre-sub reveal">Questionnaire · Analyse · PDF livré en 48h</p>
+
     <div class="price-card reveal">
-      <div class="price-row">
-        <div><div class="price-old">49€</div><div class="price-new">29€</div></div>
+      <div class="price-header">
+        <div>
+          <div class="price-old">49€</div>
+          <div class="price-new">29€</div>
+        </div>
         <div class="price-badge">Lancement</div>
       </div>
       <div class="price-div"></div>
       <ul class="price-list">
-        <li><div class="check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Questionnaire approfondi (15 min)</li>
-        <li><div class="check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Rapport PDF + de 10 pages livré en 48h</li>
-        <li><div class="check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Profil SII complet + déclencheurs</li>
-        <li><div class="check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Plan d'action priorisé · 3 leviers</li>
+        <li><div class="check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Questionnaire approfondi (~10 min)</li>
+        <li><div class="check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Rapport PDF +10 pages · livré en 48h</li>
+        <li><div class="check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Ton sous-type SII + déclencheurs identifiés</li>
+        <li><div class="check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Plan d'action priorisé · 3 leviers concrets</li>
         <li><div class="check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Tableau de suivi 14 jours inclus</li>
-        <li><div class="check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Réponse personnelle garantie</li>
+        <li><div class="check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Réponse personnelle de Baptiste garantie</li>
       </ul>
       <a href="https://tally.so/r/9q7LdG" class="btn-offre">Commencer le questionnaire →</a>
     </div>
-    <p class="offre-justify reveal" style="margin-top:16px;font-size:13px;color:rgba(255,255,255,0.45);text-align:center;line-height:1.7;font-weight:300;">Pour le prix d'une consultation, tu reçois une analyse complète de ton profil SII, un plan d'action priorisé et un suivi sur 14 jours.<br>Pas un PDF générique — ton cas, structuré.</p><p class="offre-guarantee reveal">🔒 Si ça ne t'apporte rien de concret, je te réponds personnellement. Promis.</p>
+
+    <p class="offre-guarantee reveal">🔒 Si ça ne t'apporte rien de concret, je te réponds personnellement. Promis.</p>
+    <p class="offre-compare reveal">Pour le prix d'un repas au restaurant — un plan structuré sur ton cas.</p>
   </div>
 </section>
 
 <!-- FAQ -->
 <section class="faq">
   <span class="eyebrow reveal">FAQ</span>
-  <h2 class="reveal">Questions rapides</h2>
-  <div class="faq-item reveal">
-    <div class="faq-q"><span class="faq-q-text">Pourquoi pas juste consulter un médecin ?</span><div class="faq-toggle"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></div></div>
-    <div class="faq-a">MIRON ne remplace pas un médecin. Il structure ce que tu sais déjà de toi pour avancer plus vite — seul ou avec un professionnel. Ce rapport t'aide à structurer ta prochaine consultation.</div>
-  </div>
+  <h2 class="section-h2 reveal">Questions fréquentes</h2>
+
   <div class="faq-item reveal">
     <div class="faq-q"><span class="faq-q-text">C'est vraiment personnalisé ou du copier-coller ?</span><div class="faq-toggle"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></div></div>
-    <div class="faq-a">Chaque rapport est généré à partir de tes réponses spécifiques. Deux personnes avec le SII ne reçoivent pas le même rapport.</div>
+    <div class="faq-a">Chaque rapport est construit à partir de tes réponses spécifiques. Sous-type, déclencheurs, niveau de stress, historique, hygiène de vie — tout est pris en compte. Deux personnes avec le SII ne reçoivent pas le même rapport.</div>
   </div>
   <div class="faq-item reveal">
-    <div class="faq-q"><span class="faq-q-text">Je reçois le rapport quand ?</span><div class="faq-toggle"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></div></div>
-    <div class="faq-a">Dans les 48h suivant ta réponse au questionnaire. Un PDF directement dans ta boîte email.</div>
+    <div class="faq-q"><span class="faq-q-text">Pourquoi pas juste consulter un médecin ?</span><div class="faq-toggle"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></div></div>
+    <div class="faq-a">MIRON ne remplace pas un médecin — il le complète. Tu reçois une analyse structurée de ton profil que tu peux apporter directement en consultation pour gagner du temps. De nombreux patients SII attendent des mois un rendez-vous spécialisé : ce rapport t'aide à avancer en attendant.</div>
+  </div>
+  <div class="faq-item reveal">
+    <div class="faq-q"><span class="faq-q-text">Je reçois mon rapport quand ?</span><div class="faq-toggle"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></div></div>
+    <div class="faq-a">Dans les 48h suivant la réception de ton questionnaire. Tu reçois un PDF directement dans ta boîte email.</div>
   </div>
   <div class="faq-item reveal">
     <div class="faq-q"><span class="faq-q-text">C'est un diagnostic médical ?</span><div class="faq-toggle"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></div></div>
-    <div class="faq-a">Non. MIRON est un document éducatif. Il ne prescrit aucun traitement et ne remplace pas une consultation médicale.</div>
+    <div class="faq-a">Non. MIRON est un document éducatif et fonctionnel. Il ne prescrit aucun traitement et ne remplace pas une consultation médicale. Il t'aide à mieux comprendre ton profil pour mieux collaborer avec tes professionnels de santé.</div>
+  </div>
+  <div class="faq-item reveal">
+    <div class="faq-q"><span class="faq-q-text">Et si ça ne m'apporte rien ?</span><div class="faq-toggle"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></div></div>
+    <div class="faq-a">Baptiste te répond personnellement. Tu n'achètes pas un produit anonyme — il y a un humain derrière, lui-même patient SII, qui s'engage sur la qualité de l'analyse.</div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">MIRON</div>
-  <p>Document éducatif — ne constitue pas un diagnostic médical.<br>Ne prescrit aucun traitement · Ne remplace pas un professionnel de santé.</p>
+  <p>Document éducatif · ne constitue pas un diagnostic médical<br>Ne prescrit aucun traitement · Ne remplace pas un professionnel de santé</p>
 </footer>
 
 <script>
