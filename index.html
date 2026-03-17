@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>MIRON — Comprends enfin ton SII. Un plan fait pour toi.</title>
+<title>MIRON, Comprends enfin ton SII. Un plan fait pour toi.</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -12,38 +12,67 @@
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "vx9vzq67g4");
 
-// Compteur animé IA premium
-const variables = [
-  "Analyse du sous-type SII...",
-  "Évaluation de la composante stress...",
-  "Identification des déclencheurs alimentaires...",
-  "Calcul du score de sévérité globale...",
-  "Analyse de l'axe intestin-cerveau...",
-  "Évaluation du profil microbiote...",
-  "Génération du plan d'action prioritaire..."
-];
-let vIdx = 0, num = 0;
-const counterText = document.getElementById('counter-text');
-const counterNum = document.getElementById('counter-num');
-if(counterText && counterNum) {
-  counterText.textContent = variables[0];
-  const interval = setInterval(() => {
-    num = Math.min(num + Math.floor(Math.random() * 3) + 1, 60);
-    counterNum.textContent = num + '+';
-    if(num % 8 === 0) {
-      vIdx = (vIdx + 1) % variables.length;
-      counterText.style.opacity = '0';
-      setTimeout(() => {
-        counterText.textContent = variables[vIdx];
-        counterText.style.opacity = '1';
-      }, 200);
+// Animation profil MIRON
+function animateProfil() {
+  const ring = document.getElementById('anim-ring');
+  const scoreEl = document.getElementById('anim-score');
+  const subtype = document.getElementById('anim-subtype');
+  const bar = document.getElementById('anim-bar');
+  const trigs = document.querySelectorAll('.atrig');
+
+  if(!ring || !scoreEl) return;
+
+  // Reset
+  ring.style.strokeDashoffset = '138.2';
+  ring.style.transition = 'none';
+  scoreEl.textContent = '0';
+  if(subtype) subtype.style.opacity = '0';
+  if(bar) { bar.style.transition = 'none'; bar.style.width = '0%'; }
+  trigs.forEach(t => t.style.opacity = '0');
+
+  // Sous-type apparait
+  setTimeout(() => {
+    if(subtype) subtype.style.opacity = '1';
+  }, 800);
+
+  // Score qui monte lentement
+  setTimeout(() => {
+    if(bar) bar.style.transition = 'width 3.5s cubic-bezier(.4,0,.2,1)';
+    ring.style.transition = 'stroke-dashoffset 4s cubic-bezier(.4,0,.2,1)';
+    const target = 78;
+    const duration = 4000;
+    const start = performance.now();
+    function tick(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(eased * target);
+      scoreEl.textContent = current;
+      const dashoffset = 138.2 - (138.2 * eased * target / 100);
+      ring.style.strokeDashoffset = dashoffset;
+      if(progress < 1) requestAnimationFrame(tick);
     }
-    if(num >= 60) {
-      clearInterval(interval);
-      counterNum.textContent = '60+';
-    }
-  }, 100);
+    requestAnimationFrame(tick);
+  }, 1200);
+
+  // Barre dominance
+  setTimeout(() => {
+    if(bar) bar.style.width = '60%';
+  }, 2000);
+
+  // Tags déclencheurs un par un
+  trigs.forEach((t, i) => {
+    setTimeout(() => {
+      t.style.opacity = '1';
+    }, 3000 + i * 600);
+  });
+
+  // Recommencer après pause
+  const totalDuration = 3000 + trigs.length * 600 + 4000;
+  setTimeout(animateProfil, totalDuration);
 }
+
+setTimeout(animateProfil, 1000);
 </script>
 <style>
 :root{
@@ -108,7 +137,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 20px;display:fl
 .urgence strong{font-weight:700;}
 
 /* TESTI PATIENTS */
-.testi-sec{padding:48px 22px;background:var(--light);}
+.testi-sec{padding:36px 22px 44px;background:var(--light);}
 .eyebrow{display:block;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--g2);margin-bottom:10px;}
 .sec-h2{font-family:'Nunito',sans-serif;font-size:clamp(24px,7vw,34px);font-weight:800;line-height:1.1;color:var(--ink);margin-bottom:8px;letter-spacing:-0.5px;}
 .sec-sub{font-size:14px;color:var(--muted);font-weight:300;line-height:1.65;margin-bottom:24px;}
@@ -125,7 +154,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 20px;display:fl
 .trole{font-size:11px;color:var(--muted);}
 
 /* RAPPORT */
-.rapport-sec{padding:48px 0;background:#fff;}
+.rapport-sec{padding:32px 0 40px;background:#fff;}
 .rapport-intro{padding:0 22px 22px;text-align:center;}
 .rp-shell{margin:0 16px;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 6px 40px rgba(26,188,156,.12),0 1px 8px rgba(0,0,0,.06);border:1px solid rgba(26,188,156,.14);}
 .rp-topbar{background:#f7f7f7;padding:10px 14px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #efefef;}
@@ -201,7 +230,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 20px;display:fl
 .rapport-note{text-align:center;font-size:11px;color:var(--muted);margin-top:12px;padding:0 22px;}
 
 /* FONDATEUR */
-.fondateur-sec{padding:40px 22px;background:var(--ink);}
+.fondateur-sec{padding:20px 22px 36px;background:var(--ink);}
 .fondateur-quote{position:relative;overflow:hidden;}
 .fondateur-quote::before{content:'"';position:absolute;top:-14px;left:10px;font-family:'Nunito',sans-serif;font-size:100px;font-weight:900;color:rgba(46,204,113,.1);line-height:1;}
 .fq-text{font-size:15px;font-weight:300;color:rgba(255,255,255,.82);line-height:1.75;font-style:italic;position:relative;z-index:1;margin-bottom:18px;}
@@ -216,7 +245,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 20px;display:fl
 .fi p{font-size:12px;color:rgba(255,255,255,.4);line-height:1.55;font-weight:300;}
 
 /* OFFRE */
-.offre-sec{padding:52px 22px 120px;background:var(--ink);position:relative;overflow:hidden;}
+.offre-sec{padding:40px 22px 36px;background:var(--ink);position:relative;overflow:hidden;}
 .offre-sec::before{content:'';position:absolute;top:-100px;right:-100px;width:350px;height:350px;background:radial-gradient(circle,rgba(46,204,113,.1) 0%,transparent 65%);border-radius:50%;}
 .offre-inner{position:relative;z-index:1;}
 .offre-eyebrow{display:block;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--g1);margin-bottom:10px;}
@@ -236,7 +265,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 20px;display:fl
 .offre-guarantee{margin-top:12px;font-size:12px;color:rgba(255,255,255,.25);text-align:center;line-height:1.6;}
 
 /* FAQ */
-.faq-sec{padding:52px 22px 80px;background:#fff;}
+.faq-sec{padding:36px 22px 72px;background:#fff;}
 .faq-item{border-top:1px solid rgba(0,0,0,.06);padding:16px 0;cursor:pointer;}
 .faq-item:last-child{border-bottom:1px solid rgba(0,0,0,.06);}
 .faq-q{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;}
@@ -263,11 +292,11 @@ footer p{font-size:11px;color:rgba(255,255,255,.15);line-height:1.9;}
   nav{padding:16px 48px;}
   .hero{padding:120px 48px 60px;max-width:1100px;margin:0 auto;}
   .urgence{padding:14px 48px;}
-  .testi-sec,.fondateur-sec,.offre-sec,.faq-sec{padding:72px 48px;}
+  .testi-sec{padding:48px 48px 52px;} .fondateur-sec{padding:36px 48px 40px;} .offre-sec{padding:48px 48px 100px;} .faq-sec{padding:44px 48px 72px;}
   .offre-sec{padding-bottom:100px;}
   .faq-sec{max-width:700px;margin:0 auto;}
-  .rapport-sec{padding:60px 0;}
-  .rapport-intro{padding:0 48px 24px;}
+  .rapport-sec{padding:40px 0 48px;}
+  .rapport-intro{padding:0 48px 20px;}
   .rp-shell{max-width:580px;margin:0 auto;}
 }
 </style>
@@ -290,7 +319,7 @@ footer p{font-size:11px;color:rgba(255,255,255,.15);line-height:1.9;}
 </div>
 
 <!-- HERO -->
-<section class="hero" style="padding:96px 22px 52px;background:#fff;position:relative;overflow:hidden;">
+<section class="hero" style="padding:96px 22px 40px;background:#fff;position:relative;overflow:hidden;">
 
   <!-- Grid background -->
   <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(26,188,156,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(26,188,156,.04) 1px,transparent 1px);background-size:32px 32px;pointer-events:none;"></div>
@@ -317,27 +346,87 @@ footer p{font-size:11px;color:rgba(255,255,255,.15);line-height:1.9;}
       Oublie les conseils génériques. MIRON analyse <strong style="color:var(--ink);font-weight:600;">60+ variables de ton profil SII</strong> et génère un rapport de +10 pages construit uniquement sur ton cas.
     </p>
 
-    <!-- COMPTEUR ANIMÉ PREMIUM -->
-    <div style="background:var(--ink);border-radius:16px;padding:16px 18px;margin-bottom:24px;display:flex;align-items:center;gap:14px;box-shadow:0 8px 32px rgba(13,26,20,.15);">
-      <div style="flex-shrink:0;text-align:center;">
-        <div style="font-family:'Nunito',sans-serif;font-size:28px;font-weight:900;background:linear-gradient(135deg,#2ecc71,#1abc9c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;" id="counter-num">0</div>
-        <div style="font-size:9px;color:rgba(255,255,255,.35);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-top:2px;">variables</div>
-      </div>
-      <div style="width:1px;height:36px;background:rgba(255,255,255,.08);flex-shrink:0;"></div>
-      <div style="flex:1;">
-        <div style="display:flex;align-items:center;gap:6px;margin-bottom:5px;">
-          <div style="width:6px;height:6px;background:var(--g1);border-radius:50%;animation:pulse 1.5s infinite;box-shadow:0 0 6px rgba(46,204,113,.5);flex-shrink:0;"></div>
-          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--g2);">Analyse en cours</div>
+    <!-- MODULE PROFIL ANIMÉ -->
+    <div style="background:#fff;border:1px solid rgba(26,188,156,.18);border-radius:16px;padding:16px;margin-bottom:24px;position:relative;overflow:hidden;">
+
+      <!-- Header -->
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+        <div style="display:flex;align-items:center;gap:7px;">
+          <div style="width:6px;height:6px;background:var(--g2);border-radius:50%;animation:pulse 1.5s infinite;box-shadow:0 0 6px rgba(46,204,113,.4);"></div>
+          <span style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--g3);">Profil en cours de génération</span>
         </div>
-        <div id="counter-text" style="font-size:12px;color:rgba(255,255,255,.5);font-weight:300;transition:opacity .3s;">Analyse du sous-type SII...</div>
+        <span style="font-family:'Nunito',sans-serif;font-size:11px;font-weight:800;color:var(--g2);">MIRON</span>
       </div>
+
+      <!-- Row : sous-type + score -->
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+
+        <!-- Sous-type -->
+        <div style="flex:1;background:var(--light);border-radius:10px;padding:10px 12px;border:1px solid var(--border);">
+          <div style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:3px;">Sous-type SII</div>
+          <div style="font-family:'Nunito',sans-serif;font-size:16px;font-weight:900;color:var(--ink);opacity:0;transition:opacity .5s;" id="anim-subtype">IBS-M</div>
+        </div>
+
+        <!-- Score ring -->
+        <div style="text-align:center;">
+          <div style="position:relative;width:54px;height:54px;margin:0 auto 3px;">
+            <svg viewBox="0 0 54 54" style="width:100%;height:100%;transform:rotate(-90deg);">
+              <circle cx="27" cy="27" r="22" fill="none" stroke="#f0faf7" stroke-width="5"/>
+              <circle cx="27" cy="27" r="22" fill="none" stroke="url(#grad-ring)" stroke-width="5"
+                stroke-dasharray="138.2" stroke-dashoffset="138.2" stroke-linecap="round"
+                id="anim-ring" style="transition:stroke-dashoffset 2s cubic-bezier(.4,0,.2,1);"/>
+              <defs>
+                <linearGradient id="grad-ring" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#f39c12"/>
+                  <stop offset="100%" stop-color="#e74c3c"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+              <span style="font-family:'Nunito',sans-serif;font-size:14px;font-weight:900;color:#e74c3c;line-height:1;" id="anim-score">0</span>
+              <span style="font-size:7px;color:var(--muted);">/100</span>
+            </div>
+          </div>
+          <div style="font-size:8px;font-weight:700;color:#e74c3c;text-transform:uppercase;letter-spacing:.08em;">Sévère</div>
+        </div>
+
+      </div>
+
+      <!-- Dominance bar -->
+      <div style="margin-bottom:12px;">
+        <div style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;">Dominance identifiée</div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div style="font-size:10px;font-weight:700;color:#6c5ce7;min-width:28px;">60%</div>
+          <div style="flex:1;height:5px;background:#eee;border-radius:100px;overflow:hidden;">
+            <div id="anim-bar" style="height:100%;width:0%;background:linear-gradient(90deg,#6c5ce7,#1abc9c);border-radius:100px;transition:width 1.8s cubic-bezier(.4,0,.2,1);"></div>
+          </div>
+          <div style="font-size:10px;font-weight:700;color:var(--g2);min-width:28px;text-align:right;">40%</div>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-top:3px;">
+          <div style="font-size:8px;color:var(--muted);">Neuro-fonctionnel</div>
+          <div style="font-size:8px;color:var(--muted);">Alimentaire</div>
+        </div>
+      </div>
+
+      <!-- Déclencheurs -->
+      <div>
+        <div style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;">Déclencheurs identifiés</div>
+        <div style="display:flex;flex-wrap:wrap;gap:5px;" id="anim-triggers">
+          <span class="atrig" style="background:var(--light);border:1px solid var(--border);color:var(--muted);font-size:9px;font-weight:600;padding:2px 9px;border-radius:100px;opacity:0;transition:opacity .4s;">Stress</span>
+          <span class="atrig" style="background:var(--light);border:1px solid var(--border);color:var(--muted);font-size:9px;font-weight:600;padding:2px 9px;border-radius:100px;opacity:0;transition:opacity .4s;">Graisses</span>
+          <span class="atrig" style="background:var(--light);border:1px solid var(--border);color:var(--muted);font-size:9px;font-weight:600;padding:2px 9px;border-radius:100px;opacity:0;transition:opacity .4s;">FODMAP</span>
+          <span class="atrig" style="background:var(--light);border:1px solid var(--border);color:var(--muted);font-size:9px;font-weight:600;padding:2px 9px;border-radius:100px;opacity:0;transition:opacity .4s;">Repas copieux</span>
+          <span class="atrig" style="background:var(--light);border:1px solid var(--border);color:var(--muted);font-size:9px;font-weight:600;padding:2px 9px;border-radius:100px;opacity:0;transition:opacity .4s;">Manque de sommeil</span>
+        </div>
+      </div>
+
     </div>
 
     <!-- CTA -->
     <a href="https://tally.so/r/9q7LdG" style="display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:linear-gradient(135deg,#2ecc71,#1abc9c);color:#fff;font-family:'Nunito',sans-serif;font-size:17px;font-weight:800;padding:19px;border-radius:16px;text-decoration:none;box-shadow:0 8px 40px rgba(46,204,113,.4);min-height:58px;margin-bottom:10px;letter-spacing:.01em;">
-      Commencer mon analyse gratuite →
+      Commencer mon analyse →
     </a>
-    <p style="font-size:12px;color:var(--muted);text-align:center;margin-bottom:20px;">Questionnaire gratuit · Tu paies seulement après · <strong style="color:var(--g3);">29€ prix de lancement</strong></p>
+    <p style="font-size:12px;color:var(--muted);text-align:center;margin-bottom:20px;">Tu paies seulement après le questionnaire · <strong style="color:var(--g3);">29€ prix de lancement</strong></p>
 
     <!-- METRICS ROW -->
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
@@ -358,10 +447,10 @@ footer p{font-size:11px;color:rgba(255,255,255,.15);line-height:1.9;}
     <!-- SOCIAL PROOF -->
     <div style="display:flex;align-items:center;gap:10px;margin-top:16px;">
       <div style="display:flex;">
-        <span style="width:28px;height:28px;border-radius:50%;border:2px solid #fff;background:linear-gradient(135deg,#2ecc71,#1abc9c);display:flex;align-items:center;justify-content:center;font-size:12px;">😊</span>
-        <span style="width:28px;height:28px;border-radius:50%;border:2px solid #fff;background:linear-gradient(135deg,#2ecc71,#1abc9c);display:flex;align-items:center;justify-content:center;font-size:12px;margin-left:-8px;">🙋</span>
-        <span style="width:28px;height:28px;border-radius:50%;border:2px solid #fff;background:linear-gradient(135deg,#2ecc71,#1abc9c);display:flex;align-items:center;justify-content:center;font-size:12px;margin-left:-8px;">👤</span>
-        <span style="width:28px;height:28px;border-radius:50%;border:2px solid #fff;background:linear-gradient(135deg,#2ecc71,#1abc9c);display:flex;align-items:center;justify-content:center;font-size:12px;margin-left:-8px;">🙍</span>
+        <span style="width:28px;height:28px;border-radius:50%;border:2px solid #fff;background:linear-gradient(135deg,#2ecc71,#1abc9c);display:flex;align-items:center;justify-content:center;font-family:'Nunito',sans-serif;font-size:11px;font-weight:800;color:#fff;">D</span>
+        <span style="width:28px;height:28px;border-radius:50%;border:2px solid #fff;background:linear-gradient(135deg,#1abc9c,#0e9e82);display:flex;align-items:center;justify-content:center;font-family:'Nunito',sans-serif;font-size:11px;font-weight:800;color:#fff;margin-left:-8px;">M</span>
+        <span style="width:28px;height:28px;border-radius:50%;border:2px solid #fff;background:linear-gradient(135deg,#2ecc71,#1abc9c);display:flex;align-items:center;justify-content:center;font-family:'Nunito',sans-serif;font-size:11px;font-weight:800;color:#fff;margin-left:-8px;">S</span>
+        <span style="width:28px;height:28px;border-radius:50%;border:2px solid #fff;background:linear-gradient(135deg,#0e9e82,#1abc9c);display:flex;align-items:center;justify-content:center;font-family:'Nunito',sans-serif;font-size:11px;font-weight:800;color:#fff;margin-left:-8px;">L</span>
       </div>
       <div>
         <div style="color:#f59e0b;font-size:11px;letter-spacing:1px;">★★★★★</div>
@@ -375,7 +464,7 @@ footer p{font-size:11px;color:rgba(255,255,255,.15);line-height:1.9;}
 <!-- URGENCE -->
 <div class="urgence reveal">
   <span>⏳</span>
-  <p><strong>Prix de lancement à 29€</strong> — reviendra à 49€ prochainement.</p>
+  <p><strong>Prix de lancement à 29€</strong>, reviendra à 49€ prochainement.</p>
 </div>
 
 <!-- TÉMOIGNAGES PATIENTS -->
@@ -387,7 +476,7 @@ footer p{font-size:11px;color:rgba(255,255,255,.15);line-height:1.9;}
   <div class="tcard reveal">
     <div class="badge-patient">✓ Patiente SII</div>
     <div class="tstars">★★★★★</div>
-    <p class="ttext">"Le rapport m'a permis de comprendre que mon stress déclenchait 80% de mes crises — quelque chose que je suspectais mais que personne n'avait jamais structuré pour moi. J'ai enfin une vision claire de mon profil et un plan concret par où commencer. Baptiste, continue ce projet — c'est exactement ce qu'il manquait."</p>
+    <p class="ttext">"Le rapport m'a permis de comprendre que mon stress déclenchait 80% de mes crises, quelque chose que je suspectais mais que personne n'avait jamais structuré pour moi. J'ai enfin une vision claire de mon profil et un plan concret par où commencer. Baptiste, continue ce projet, c'est exactement ce qu'il manquait."</p>
     <div class="tauthor">
       <div class="tav">😊</div>
       <div><div class="tname">Daniela</div><div class="trole">Patiente SII · A reçu son rapport MIRON</div></div>
@@ -405,12 +494,12 @@ footer p{font-size:11px;color:rgba(255,255,255,.15);line-height:1.9;}
   </div>
 
   <div class="tcard reveal d2">
-    <div class="badge-pro">✓ Diététicienne · Québec</div>
+    <div class="badge-pro">✓ Diététicienne</div>
     <div class="tstars">★★★★★</div>
     <p class="ttext">"Un outil formidable, très bien pensé. Les recommandations sont concrètes et font beaucoup de sens. J'aurais beaucoup aimé avoir accès à cela après mon propre diagnostic de SII."</p>
     <div class="tauthor">
       <div class="tav">👩‍⚕️</div>
-      <div><div class="tname">Clémence C., Dt.P.</div><div class="trole">Diététicienne-Nutritionniste</div></div>
+      <div><div class="tname">Clémence C.</div><div class="trole">Diététicienne-Nutritionniste</div></div>
     </div>
   </div>
 </section>
@@ -489,7 +578,7 @@ footer p{font-size:11px;color:rgba(255,255,255,.15);line-height:1.9;}
       </div>
       <div class="rp-insight-block">
         <div class="rp-insight-icon">💡</div>
-        <div class="rp-insight-text"><strong>Ce qui domine chez toi :</strong> Douleurs <b>après chaque repas</b>, ballonnements visibles, fatigue chronique — deux signaux qui distinguent ce profil et orientent le plan d'action.</div>
+        <div class="rp-insight-text"><strong>Ce qui domine chez toi :</strong> Douleurs <b>après chaque repas</b>, ballonnements visibles, fatigue chronique, deux signaux qui distinguent ce profil et orientent le plan d'action.</div>
       </div>
       <div class="rp-leviers-header">
         <div class="rp-leviers-title">Plan d'action prioritaire</div>
@@ -499,7 +588,7 @@ footer p{font-size:11px;color:rgba(255,255,255,.15);line-height:1.9;}
         <div class="rp-lev-num">1</div>
         <div class="rp-lev-body">
           <div class="rp-lev-title">Traiter l'hypersensibilité viscérale</div>
-          <div class="rp-lev-desc">Gut-directed hypnotherapy ou TCC-SII — le plus documenté pour douleurs nocturnes et 8/10 non soulagées par les selles.</div>
+          <div class="rp-lev-desc">Gut-directed hypnotherapy ou TCC-SII, le plus documenté pour douleurs nocturnes et 8/10 non soulagées par les selles.</div>
           <div class="rp-lev-tags"><span>Dès maintenant</span><span>Priorité absolue</span></div>
         </div>
       </div>
@@ -507,7 +596,7 @@ footer p{font-size:11px;color:rgba(255,255,255,.15);line-height:1.9;}
         <div class="rp-lev-num">2</div>
         <div class="rp-lev-body">
           <div class="rp-lev-title">Restaurer le microbiote</div>
-          <div class="rp-lev-desc">Approche post-infectieuse ciblée — changer de souche probiotique + bilan calprotectine fécale.</div>
+          <div class="rp-lev-desc">Approche post-infectieuse ciblée, changer de souche probiotique + bilan calprotectine fécale.</div>
           <div class="rp-lev-tags"><span>Semaine 1</span><span>SII post-infectieux</span></div>
         </div>
       </div>
@@ -538,7 +627,7 @@ footer p{font-size:11px;color:rgba(255,255,255,.15);line-height:1.9;}
 </section>
 
 <!-- IA SECTION -->
-<section style="padding:48px 22px;background:var(--ink);position:relative;overflow:hidden;">
+<section style="padding:40px 22px;background:var(--ink);position:relative;overflow:hidden;">
   <div style="position:absolute;top:-80px;left:-80px;width:300px;height:300px;background:radial-gradient(circle,rgba(46,204,113,.08) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
   <div style="position:relative;z-index:1;">
     <span class="eyebrow reveal" style="color:var(--g1);">Technologie</span>
@@ -572,169 +661,10 @@ footer p{font-size:11px;color:rgba(255,255,255,.15);line-height:1.9;}
       <div style="font-family:'Nunito',sans-serif;font-size:42px;font-weight:900;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;flex-shrink:0;">60+</div>
       <div>
         <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:4px;">variables analysées par rapport</div>
-        <div style="font-size:12px;color:rgba(255,255,255,.35);line-height:1.55;font-weight:300;">Symptômes, stress, alimentation, historique, sommeil, microbiote — croisés simultanément. Impossible à faire manuellement en consultation.</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.35);line-height:1.55;font-weight:300;">Symptômes, stress, alimentation, historique, sommeil, microbiote, croisés simultanément. Impossible à faire manuellement en consultation.</div>
       </div>
     </div>
   </div>
-</section>
-
-<!-- TÉMOIGNAGES PATIENTS -->
-<section class="testi-sec">
-  <span class="eyebrow reveal">Ils ont reçu leur rapport</span>
-  <h2 class="sec-h2 reveal">Ce qu'en disent<br>les patients SII</h2>
-  <p class="sec-sub reveal">Des personnes comme toi, qui cherchaient enfin à comprendre leur profil.</p>
-
-  <div class="tcard reveal">
-    <div class="badge-patient">✓ Patiente SII</div>
-    <div class="tstars">★★★★★</div>
-    <p class="ttext">"Le rapport est vraiment très complet. Il m'a donné une vue d'ensemble que je n'avais jamais eue sur mon profil. Je comprends enfin ce qui se passe chez moi. Baptiste, continue ce projet — c'est exactement ce qu'il manquait."</p>
-    <div class="tauthor">
-      <div class="tav">😊</div>
-      <div><div class="tname">Daniela</div><div class="trole">Patiente SII · A reçu son rapport MIRON</div></div>
-    </div>
-  </div>
-
-  <div class="tcard reveal d1">
-    <div class="badge-patient">✓ Patiente SII</div>
-    <div class="tstars">★★★★★</div>
-    <p class="ttext">"Très professionnel et vraiment personnalisé. On voit que chaque recommandation est construite sur mes réponses, pas sur un profil générique. Très contente du rendu."</p>
-    <div class="tauthor">
-      <div class="tav">🙋</div>
-      <div><div class="tname">Manon</div><div class="trole">Patiente SII · A reçu son rapport MIRON</div></div>
-    </div>
-  </div>
-
-  <div class="tcard reveal d2">
-    <div class="badge-pro">✓ Diététicienne · Québec</div>
-    <div class="tstars">★★★★★</div>
-    <p class="ttext">"Un outil formidable, très bien pensé. Les recommandations sont concrètes et font beaucoup de sens. J'aurais beaucoup aimé avoir accès à cela après mon propre diagnostic de SII."</p>
-    <div class="tauthor">
-      <div class="tav">👩‍⚕️</div>
-      <div><div class="tname">Clémence C., Dt.P.</div><div class="trole">Diététicienne-Nutritionniste</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- APERÇU RAPPORT -->
-<section class="rapport-sec">
-  <div class="rapport-intro">
-    <span class="eyebrow reveal">Exemple de rapport</span>
-    <h2 class="sec-h2 reveal" style="text-align:center;">Ce que tu reçois,<br>concrètement</h2>
-    <p style="font-size:13px;color:var(--muted);margin-top:6px;text-align:center;" class="reveal">Profil anonymisé · Le tien sera entièrement différent</p>
-  </div>
-
-  <div class="rp-shell reveal">
-    <div class="rp-topbar">
-      <div class="rp-dots"><span></span><span></span><span></span></div>
-      <div class="rp-topbar-title">Analyse Fonctionnelle MIRON · S., 29 ans</div>
-      <div class="rp-badge-ex">EXEMPLE</div>
-    </div>
-    <div class="rp-page">
-      <div class="rp-page-header">
-        <div>
-          <div class="rp-page-label">Profil actuel synthétique</div>
-          <div class="rp-page-tag">Document éducatif · ne constitue pas un diagnostic médical</div>
-        </div>
-        <div class="rp-logo-mini">MIRON</div>
-      </div>
-      <div class="rp-hero-row">
-        <div class="rp-hero-block">
-          <div class="rp-hero-label">Sous-type SII</div>
-          <div class="rp-hero-val">IBS-M <span class="rp-hero-sub">Mixte</span></div>
-        </div>
-        <div class="rp-hero-sep"></div>
-        <div class="rp-hero-block rp-hero-center">
-          <div class="rp-hero-label">Sévérité globale</div>
-          <div class="rp-severity-ring">
-            <svg viewBox="0 0 64 64" class="rp-ring-svg">
-              <circle cx="32" cy="32" r="27" fill="none" stroke="#f0faf7" stroke-width="6"/>
-              <circle cx="32" cy="32" r="27" fill="none" stroke="url(#rg)" stroke-width="6" stroke-dasharray="169.6" stroke-dashoffset="47.5" stroke-linecap="round" transform="rotate(-90 32 32)"/>
-              <defs><linearGradient id="rg" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f39c12"/><stop offset="100%" stop-color="#e74c3c"/></linearGradient></defs>
-            </svg>
-            <div class="rp-ring-label"><span class="rp-ring-num">72</span><span class="rp-ring-max">/100</span></div>
-          </div>
-          <div class="rp-severity-tag">Sévère</div>
-        </div>
-        <div class="rp-hero-sep"></div>
-        <div class="rp-hero-block">
-          <div class="rp-hero-label">Durée</div>
-          <div class="rp-hero-val">+5 ans <span class="rp-hero-sub">installés</span></div>
-        </div>
-      </div>
-      <div class="rp-dominance">
-        <div class="rp-dom-label">Dominance identifiée</div>
-        <div class="rp-dom-bar-wrap">
-          <div class="rp-dom-side rp-dom-neuro"><span class="rp-dom-pct">60%</span><span class="rp-dom-name">Neuro-fonctionnel</span></div>
-          <div class="rp-dom-track"><div class="rp-dom-fill" style="width:60%"></div></div>
-          <div class="rp-dom-side rp-dom-alim"><span class="rp-dom-pct">40%</span><span class="rp-dom-name">Alimentaire</span></div>
-        </div>
-      </div>
-      <div class="rp-scores-grid">
-        <div class="rp-score-chip">
-          <div class="rp-sc-top"><div class="rp-sc-label">Douleurs abdominales</div><div class="rp-sc-val" style="color:#e74c3c;">7<span>/10</span></div></div>
-          <div class="rp-sc-bar"><div class="rp-sc-fill" style="width:70%;background:linear-gradient(90deg,#f39c12,#e74c3c)"></div></div>
-        </div>
-        <div class="rp-score-chip">
-          <div class="rp-sc-top"><div class="rp-sc-label">Impact vie quotidienne</div><div class="rp-sc-val" style="color:#e74c3c;">8<span>/10</span></div></div>
-          <div class="rp-sc-bar"><div class="rp-sc-fill" style="width:80%;background:linear-gradient(90deg,#f39c12,#e74c3c)"></div></div>
-        </div>
-        <div class="rp-score-chip">
-          <div class="rp-sc-top"><div class="rp-sc-label">Stress général</div><div class="rp-sc-val" style="color:#f39c12;">8<span>/10</span></div></div>
-          <div class="rp-sc-bar"><div class="rp-sc-fill" style="width:80%;background:linear-gradient(90deg,#f5d020,#f39c12)"></div></div>
-        </div>
-        <div class="rp-score-chip">
-          <div class="rp-sc-top"><div class="rp-sc-label">Motivation</div><div class="rp-sc-val" style="color:#1abc9c;">10<span>/10</span></div></div>
-          <div class="rp-sc-bar"><div class="rp-sc-fill" style="width:100%;background:linear-gradient(90deg,#1abc9c,#2ecc71)"></div></div>
-        </div>
-      </div>
-      <div class="rp-insight-block">
-        <div class="rp-insight-icon">💡</div>
-        <div class="rp-insight-text"><strong>Ce qui domine chez toi :</strong> Douleurs <b>après chaque repas</b>, ballonnements visibles, fatigue chronique — deux signaux qui distinguent ce profil et orientent le plan d'action.</div>
-      </div>
-      <div class="rp-leviers-header">
-        <div class="rp-leviers-title">Plan d'action prioritaire</div>
-        <div class="rp-leviers-sub">3 leviers · dans l'ordre d'impact</div>
-      </div>
-      <div class="rp-levier rp-lev-1">
-        <div class="rp-lev-num">1</div>
-        <div class="rp-lev-body">
-          <div class="rp-lev-title">Traiter l'hypersensibilité viscérale</div>
-          <div class="rp-lev-desc">Gut-directed hypnotherapy ou TCC-SII — le plus documenté pour douleurs nocturnes et 8/10 non soulagées par les selles.</div>
-          <div class="rp-lev-tags"><span>Dès maintenant</span><span>Priorité absolue</span></div>
-        </div>
-      </div>
-      <div class="rp-levier rp-lev-2">
-        <div class="rp-lev-num">2</div>
-        <div class="rp-lev-body">
-          <div class="rp-lev-title">Restaurer le microbiote</div>
-          <div class="rp-lev-desc">Approche post-infectieuse ciblée — changer de souche probiotique + bilan calprotectine fécale.</div>
-          <div class="rp-lev-tags"><span>Semaine 1</span><span>SII post-infectieux</span></div>
-        </div>
-      </div>
-      <div class="rp-blur-wrap">
-        <div class="rp-blur-content">
-          <div class="rp-levier" style="background:linear-gradient(135deg,#fffaf0,#fff5e6);border:1px solid rgba(243,156,18,.18);filter:blur(4px);opacity:0.4;pointer-events:none;">
-            <div class="rp-lev-num" style="background:linear-gradient(135deg,#f39c12,#f5d020);">3</div>
-            <div class="rp-lev-body">
-              <div class="rp-lev-title">Réduire la charge digestive par repas</div>
-              <div class="rp-lev-desc">Fractionner les repas, manger lentement, augmenter l'hydratation.</div>
-            </div>
-          </div>
-          <div style="filter:blur(4px);opacity:0.3;background:#f0faf7;border-radius:8px;padding:9px 11px;font-size:9px;color:#666;">
-            + Cartographie symptômes · Déclencheurs · Tableau suivi 14 jours · Annexe technique...
-          </div>
-        </div>
-        <div class="rp-blur-gate">
-          <div class="rp-blur-gate-inner">
-            <div class="rp-blur-gate-icon">🔒</div>
-            <div class="rp-blur-gate-text">Ton 3ème levier + 10 autres pages<br>t'attendent dans ton rapport</div>
-            <a href="https://tally.so/r/9q7LdG" class="rp-blur-gate-btn">Obtenir mon rapport →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <p class="rapport-note reveal">🔒 Profil anonymisé · Ton rapport sera entièrement construit sur tes réponses</p>
 </section>
 
 <!-- OFFRE -->
@@ -758,7 +688,7 @@ footer p{font-size:11px;color:rgba(255,255,255,.15);line-height:1.9;}
         <li><div class="check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Sous-type SII + déclencheurs identifiés</li>
         <li><div class="check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Plan d'action priorisé · 3 leviers concrets</li>
         <li><div class="check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Tableau de suivi 14 jours inclus</li>
-        <li><div class="check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Réponse personnelle de Baptiste garantie</li>
+        <li><div class="check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Baptiste te répond si tu as des questions</li>
       </ul>
       <a href="https://tally.so/r/9q7LdG" class="btn-offre">Commencer le questionnaire gratuit →</a>
     </div>
@@ -786,11 +716,11 @@ footer p{font-size:11px;color:rgba(255,255,255,.15);line-height:1.9;}
     </div>
     <div class="fi reveal d2">
       <div class="fi-icon">📋</div>
-      <div><strong>Généré sur tes réponses</strong><p>Pas un PDF générique — ton cas, structuré en +10 pages.</p></div>
+      <div><strong>Généré sur tes réponses</strong><p>Pas un PDF générique, ton cas, structuré en +10 pages.</p></div>
     </div>
     <div class="fi reveal d2">
       <div class="fi-icon">⚡</div>
-      <div><strong>Un système dopé à l'IA, pas un chatbot</strong><p>MIRON n'est pas ChatGPT. C'est un système spécialisé SII — méthodologie clinique, 60+ variables analysées simultanément. Un niveau d'analyse qu'aucun humain ne pourrait produire seul en consultation.</p></div>
+      <div><strong>Un système dopé à l'IA, pas un chatbot</strong><p>MIRON n'est pas ChatGPT. C'est un système spécialisé SII, méthodologie clinique, 60+ variables analysées simultanément. Un niveau d'analyse qu'aucun humain ne pourrait produire seul en consultation.</p></div>
     </div>
   </div>
 </section>
@@ -806,7 +736,7 @@ footer p{font-size:11px;color:rgba(255,255,255,.15);line-height:1.9;}
   </div>
   <div class="faq-item reveal">
     <div class="faq-q"><span class="faq-q-text">C'est vraiment personnalisé ?</span><div class="faq-toggle"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></div></div>
-    <div class="faq-a">Oui. Chaque rapport est construit à partir de tes réponses. Sous-type, déclencheurs, stress, historique — tout est pris en compte. Deux personnes avec le SII ne reçoivent pas le même rapport.</div>
+    <div class="faq-a">Oui. Chaque rapport est construit à partir de tes réponses. Sous-type, déclencheurs, stress, historique, tout est pris en compte. Deux personnes avec le SII ne reçoivent pas le même rapport.</div>
   </div>
   <div class="faq-item reveal">
     <div class="faq-q"><span class="faq-q-text">Je reçois mon rapport quand ?</span><div class="faq-toggle"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></div></div>
